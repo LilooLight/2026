@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Мария Мишина — Senior Product Designer</title>
 <!--
-  Портфолио — Мария Мишина · сборка №4
-  Что нового: меню «Опыт → Кейсы → Обо мне → Контакты»; страница «Обо мне»
-  с текстом (4 абзаца) и вертикальным фото-аркой (assets/about.jpg);
-  перенумерованы разделы; починен акцентный контур арки на главной.
-  Файлы фото: assets/portrait.jpg (главная), assets/about.jpg (обо мне).
+  Портфолио — Мария Мишина · сборка №5
+  Что нового: «Обо мне» → «Профиль» (формат досье): подразделы
+  (01) Профессиональный профиль, (02) Ключевые компетенции (чипы, 2 колонки),
+  (03) Инструменты (список, 2 колонки), (04) Образование;
+  фото в колонке — липкое при скролле.
+  Файлы фото: assets/portrait.jpg (главная), assets/about.jpg (профиль).
   Обновление: ✏️ Edit на GitHub → Ctrl+A → вставить → Commit.
 -->
 
@@ -172,8 +173,8 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   width:min(100%,420px);margin-top:-clamp(48px,7vw,110px);
 }
 .hero-media .frame{border-radius:999px 999px 22px 22px;overflow:hidden;aspect-ratio:3/3.9;background:var(--surface)}
-/* Акцентный контур за портретом: висит на figure — тогда рамка
-   с overflow:hidden его не обрезает (в сборке №3 обрезала) */
+/* Акцентный контур за портретом: висит на figure — рамка
+   с overflow:hidden его не обрезает */
 .hero-media::before{
   content:"";position:absolute;inset:0;transform:translate(16px,16px);
   border:1.5px solid var(--accent);border-radius:999px 999px 22px 22px;pointer-events:none;
@@ -360,25 +361,44 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
 .case-nav{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:40px;margin-top:20px}
 
 /* ============================================================
-   МОДУЛЬ CSS-9: «Обо мне» + «Контакты»
+   МОДУЛЬ CSS-9: «Профиль» (досье) + «Контакты»
    ============================================================ */
-/* «Обо мне»: две колонки — текст слева, вертикальное фото справа */
+/* Две колонки: слева досье, справа вертикальное фото */
 .about-grid{
   display:grid;grid-template-columns:minmax(0,1fr) clamp(220px,24vw,310px);
   column-gap:clamp(36px,5vw,72px);align-items:start;
-  padding-top:clamp(8px,2vw,20px);
 }
-/* Первый абзац — редакционный лид, крупнее остальных */
-.about-text .about-big{
-  font-size:clamp(1.2rem,2.3vw,1.7rem);line-height:1.45;font-weight:500;
-  letter-spacing:-.005em;margin-bottom:1.4em;
+/* Подраздел досье (01)–(04) */
+.about-sub{border-top:1px solid var(--line);padding-top:clamp(24px,3vw,32px);margin-top:clamp(36px,5vw,52px)}
+.about-sub:first-of-type{border-top:0;margin-top:0;padding-top:0}
+.as-head{display:flex;align-items:baseline;gap:14px;margin-bottom:clamp(18px,2.5vw,26px)}
+.as-idx{font-family:var(--font-mono);font-size:12px;color:var(--accent);letter-spacing:.14em}
+.as-head h3{font-family:var(--font-display);font-weight:600;font-size:clamp(1.1rem,1.9vw,1.4rem);letter-spacing:-.01em}
+/* (01) Профессиональный профиль — редакционный лид */
+.about-big{
+  font-size:clamp(1.15rem,2.1vw,1.55rem);line-height:1.5;font-weight:500;
+  letter-spacing:-.005em;max-width:56ch;
 }
-.about-text p{max-width:60ch;line-height:1.75}
-.about-text p+p{margin-top:1.15em}
-.about-text strong{font-weight:600}
-/* Вертикальное фото-арка — перекликается с портретом на главной;
-   контур смещён влево-вниз, «смотрит» в текст */
-.about-photo{position:relative}
+.about-big strong{font-weight:600}
+/* (02) Компетенции: чипы в две колонки — те же, что на главной */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px}
+/* (03) Инструменты: компактный список, квадрат-маркер
+   перекликается с квадратом логотипа */
+.tools-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;list-style:none;margin:0;padding:0}
+.tools-list li{
+  display:flex;align-items:center;gap:12px;
+  font-family:var(--font-mono);font-size:13px;color:var(--muted);letter-spacing:.02em;
+}
+.tools-list li::before{content:"";width:6px;height:6px;border-radius:1.5px;background:var(--accent);flex:none}
+/* (04) Образование: записи-строки */
+.edu-item{
+  display:grid;grid-template-columns:minmax(120px,160px) 1fr;gap:6px 24px;align-items:baseline;
+  padding:16px 0;border-top:1px solid var(--line);
+}
+.edu-school{font-weight:600;font-size:1.05rem}
+.edu-prog{color:var(--muted)}
+/* Вертикальное фото-арка: липнет при прокрутке досье */
+.about-photo{position:sticky;top:96px}
 .about-photo .frame{
   border-radius:999px 999px 22px 22px;overflow:hidden;
   aspect-ratio:3/3.9;background:var(--surface);
@@ -426,9 +446,9 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   .hero-grid{grid-template-columns:1fr}
   .hero-title,.hero-media,.hero-side{grid-column:1;grid-row:auto}
   .hero-media{justify-self:start;width:min(78%,340px);margin-top:34px}
-  /* «Обо мне»: в одну колонку, фото поднимается над текстом */
+  /* «Профиль»: в одну колонку, фото поднимается над досье */
   .about-grid{grid-template-columns:1fr;row-gap:clamp(28px,4vw,44px)}
-  .about-photo{order:-1;max-width:340px}
+  .about-photo{order:-1;max-width:340px;position:static}
   .timeline::before{left:6px}
   .tl-item{grid-template-columns:26px 1fr;row-gap:6px}
   .tl-year{grid-column:2;grid-row:1;padding-top:0}
@@ -445,6 +465,8 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
 @media (max-width:560px){
   .report-grid,.cs-media-grid{grid-template-columns:1fr}
   .case-cover{aspect-ratio:4/3}
+  .skills-grid,.tools-list{grid-template-columns:1fr}
+  .edu-item{grid-template-columns:1fr;gap:2px}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -477,7 +499,7 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
     <nav class="nav">
       <a class="nav-link" href="#experience" data-i18n="navExp">Опыт</a>
       <a class="nav-link" href="#cases" data-i18n="navCases">Кейсы</a>
-      <a class="nav-link" href="#about" data-i18n="navAbout">Обо мне</a>
+      <a class="nav-link" href="#about" data-i18n="navProfile">Профиль</a>
       <a class="nav-link" href="#contacts" data-i18n="navContacts">Контакты</a>
     </nav>
     <div class="controls">
@@ -743,41 +765,97 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   </div>
 </section>
 
-<!-- ======================= СТРАНИЦА: ОБО МНЕ ======================= -->
+<!-- ======================= СТРАНИЦА: ПРОФИЛЬ (досье) ======================= -->
 <section class="page" id="page-about" data-page="about" hidden>
   <div class="wrap">
     <header class="sec-head rv">
       <span class="sec-idx mono">(03)</span>
-      <h2 data-i18n="secAbout">Обо мне</h2>
-      <span class="sec-note ph">[ факты: образование · сертификаты · языки ]</span>
+      <h2 data-i18n="secProfile">Профиль</h2>
+      <span class="sec-note">9+ лет · B2B / B2G</span>
     </header>
 
-    <!-- Две колонки: слева текст, справа вертикальное фото-арка -->
-    <div class="about-grid rv">
+    <!-- Две колонки: слева досье, справа липкое вертикальное фото -->
+    <div class="about-grid">
       <div class="about-text">
-        <p class="about-big">Я — продуктовый дизайнер с более чем <strong>9-летним опытом</strong> создания сложных B2B и B2G продуктов. Моя специализация — высокорегулируемые среды (финтех, госсектор, enterprise), где критически важно найти баланс между строгими требованиями законодательства, техническими ограничениями и реальными потребностями пользователей.</p>
-        <p>Мой бэкграунд в психологии позволяет мне смотреть на продукт глубже, чем просто на «интерфейсы». Я исследую поведение пользователей, выстраиваю логику их действий и превращаю сложные процессы в интуитивно понятные сценарии. Я не просто рисую экраны — я проектирую стратегию взаимодействия.</p>
-        <p>Мой путь начался с проектирования порталов для Правительства Москвы и Московской Биржи, затем 7 лет развития флагманского «Бизнес-портала» в банке «Открытие» (который вошел в Топ-10 по версии Markswebb), и последний опыт — работа над AI-интерфейсами в Сбере и создание дизайн-системы с нуля в legacy-среде ГлавНИВЦ. Это дало мне уникальную способность быстро адаптироваться к любому контексту, наводить порядок в хаосе и выстраивать процессы там, где их никогда не было.</p>
-        <p>Мне нравится лидировать и выращивать команды. За время работы я выросла <strong>от Senior до Lead</strong> и увеличила дизайн-команду <strong>с 3 до 12 человек</strong>. Я умею работать с продуктовыми менеджерами, разработчиками и бизнесом, защищать дизайн-решения и доводить их до результата.</p>
+
+        <!-- (01) Профессиональный профиль -->
+        <section class="about-sub rv">
+          <div class="as-head">
+            <span class="as-idx">(01)</span>
+            <h3 data-i18n="secProfileIntro">Профессиональный профиль</h3>
+          </div>
+          <p class="about-big">Продуктовый дизайнер с более чем <strong>9-летним опытом</strong> создания сложных B2B и B2G продуктов. Специализируюсь на высокорегулируемых средах (финтех, госсектор, enterprise), где критически важно найти баланс между требованиями законодательства, техническими ограничениями и потребностями пользователей. Бэкграунд в психологии позволяет исследовать поведение пользователей и проектировать стратегию взаимодействия, а не просто рисовать экраны.</p>
+        </section>
+
+        <!-- (02) Ключевые компетенции -->
+        <section class="about-sub rv">
+          <div class="as-head">
+            <span class="as-idx">(02)</span>
+            <h3 data-i18n="secSkills">Ключевые компетенции</h3>
+          </div>
+          <div class="skills-grid">
+            <span class="chip">UX Research</span>
+            <span class="chip">Service Design</span>
+            <span class="chip">Design Systems</span>
+            <span class="chip">Prototyping</span>
+            <span class="chip">User Testing</span>
+            <span class="chip">Journey Mapping</span>
+            <span class="chip">B2B Interfaces</span>
+            <span class="chip">Fintech Products</span>
+            <span class="chip">Product Strategy</span>
+            <span class="chip">Team Leadership</span>
+            <span class="chip">Atomic Design</span>
+            <span class="chip">Agile/Scrum</span>
+          </div>
+        </section>
+
+        <!-- (03) Инструменты -->
+        <section class="about-sub rv">
+          <div class="as-head">
+            <span class="as-idx">(03)</span>
+            <h3 data-i18n="secTools">Инструменты</h3>
+          </div>
+          <ul class="tools-list">
+            <li>Figma</li>
+            <li>Miro</li>
+            <li>Principle</li>
+            <li>Adobe CC</li>
+            <li>Sketch</li>
+            <li>InVision</li>
+            <li>Jira</li>
+            <li>Confluence</li>
+            <li>Pixso</li>
+            <li>Hotjar</li>
+            <li>Analytics</li>
+            <li>Premiere Pro</li>
+          </ul>
+        </section>
+
+        <!-- (04) Образование -->
+        <section class="about-sub rv">
+          <div class="as-head">
+            <span class="as-idx">(04)</span>
+            <h3 data-i18n="secEducation">Образование</h3>
+          </div>
+          <div class="edu-item">
+            <span class="edu-school">БВШД</span>
+            <span class="edu-prog">Графический дизайн и визуальные коммуникации</span>
+          </div>
+          <div class="edu-item">
+            <span class="edu-school">РГСУ</span>
+            <span class="edu-prog">Психология, бакалавр</span>
+          </div>
+        </section>
+
       </div>
 
-      <!-- ◆ Вертикальное фото: файл assets/about.jpg -->
-      <figure class="about-photo">
+      <!-- Вертикальное фото: файл assets/about.jpg -->
+      <figure class="about-photo rv">
         <div class="frame">
-          <img src="assets/about.jpg" alt="Мария Мишина — вертикальный портрет">
+          <img src="assets/about.jpg" alt="Мария Мишина — портрет">
         </div>
       </figure>
     </div>
-
-    <!-- ◆ ОПЦИОНАЛЬНО: блок под факты (образование, сертификаты, языки).
-         Не нужен — удалите этот <section> целиком -->
-    <section class="cs-block rv">
-      <div>
-        <span class="cs-idx">(01)</span>
-        <h2 class="ph">[ образование · сертификаты · языки ]</h2>
-      </div>
-      <div class="ph-block" aria-hidden="true"><i></i><i></i><i></i></div>
-    </section>
   </div>
 </section>
 
@@ -962,9 +1040,11 @@ setTheme(
    ============================================================ */
 const I18N = {
   ru: {
-    navAbout:'Обо мне', navExp:'Опыт', navCases:'Кейсы', navContacts:'Контакты',
+    navProfile:'Профиль', navExp:'Опыт', navCases:'Кейсы', navContacts:'Контакты',
     heroBtnExp:'Опыт работы', heroBtnCases:'Смотреть кейсы',
-    secAbout:'Обо мне', secExperience:'Опыт работы', secCases:'Кейсы', secContacts:'Контакты',
+    secProfile:'Профиль', secExperience:'Опыт работы', secCases:'Кейсы', secContacts:'Контакты',
+    secProfileIntro:'Профессиональный профиль', secSkills:'Ключевые компетенции',
+    secTools:'Инструменты', secEducation:'Образование',
     secContext:'Контекст', secSolution:'Решение',
     secEvidence:'Доказательства', secOutcomes:'Итоги',
     backToCases:'Все кейсы', linkOpenCase:'Открыть кейс',
@@ -972,9 +1052,11 @@ const I18N = {
     marquee:['Продуктовый дизайн','FinTech','B2B','GovTech','AI Интерфейсы','UX Research','Дизайн-системы','Менторинг','Figma','Enterprise','Service Design']
   },
   en: {
-    navAbout:'About', navExp:'Experience', navCases:'Cases', navContacts:'Contact',
+    navProfile:'Profile', navExp:'Experience', navCases:'Cases', navContacts:'Contact',
     heroBtnExp:'Work experience', heroBtnCases:'View cases',
-    secAbout:'About', secExperience:'Experience', secCases:'Case studies', secContacts:'Contact',
+    secProfile:'Profile', secExperience:'Experience', secCases:'Case studies', secContacts:'Contact',
+    secProfileIntro:'Professional profile', secSkills:'Core competencies',
+    secTools:'Tools', secEducation:'Education',
     secContext:'Context', secSolution:'Solution',
     secEvidence:'Evidence', secOutcomes:'Outcomes',
     backToCases:'All cases', linkOpenCase:'View case',
@@ -982,9 +1064,11 @@ const I18N = {
     marquee:['Product Design','FinTech','B2B','GovTech','AI Interfaces','UX Research','Design Systems','Mentorship','Figma','Enterprise','Service Design']
   },
   cn: {
-    navAbout:'关于', navExp:'经验', navCases:'案例', navContacts:'联系',
+    navProfile:'简介', navExp:'经验', navCases:'案例', navContacts:'联系',
     heroBtnExp:'工作经历', heroBtnCases:'查看案例',
-    secAbout:'关于我', secExperience:'工作经历', secCases:'案例研究', secContacts:'联系方式',
+    secProfile:'简介', secExperience:'工作经历', secCases:'案例研究', secContacts:'联系方式',
+    secProfileIntro:'专业简介', secSkills:'核心能力',
+    secTools:'工具', secEducation:'教育背景',
     secContext:'背景', secSolution:'解决方案',
     secEvidence:'验证', secOutcomes:'成果',
     backToCases:'所有案例', linkOpenCase:'查看案例',
