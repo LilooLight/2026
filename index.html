@@ -5,12 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Мария Мишина — Senior Product Designer</title>
 <!--
-  Портфолио — Мария Мишина · сборка №6
-  Что нового: таймлайн «Опыт работы» заполнен (4 записи: ГлавНИВЦ, Сбербанк,
-  Банк «ФК Открытие», Прогрэсдис) в едином формате: даты в скобках слева,
-  компания в скобках + роль, блоки Контекст / Мой вклад / Результаты,
-  именные ссылки на кейсы. Подписи блоков переводятся (i18n).
-  Файлы фото: assets/portrait.jpg (главная), assets/about.jpg (профиль).
+  Портфолио — Мария Мишина · сборка №7
+  Что нового: детальный кейс «Редизайн CRM «КПИ»» заполнен (Hero, Контекст,
+  Решение, Доказательства, Итоги) + 9 иллюстраций-слайдов; featured-карточка
+  на «Кейсах» заполнена; ссылка в таймлайне ведёт на кейс.
+  Изображения кейса: 9 файлов assets/kpi-*.png (см. таблицу переименования).
   Обновление: ✏️ Edit на GitHub → Ctrl+A → вставить → Commit.
 -->
 
@@ -174,8 +173,6 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   width:min(100%,420px);margin-top:-clamp(48px,7vw,110px);
 }
 .hero-media .frame{border-radius:999px 999px 22px 22px;overflow:hidden;aspect-ratio:3/3.9;background:var(--surface)}
-/* Акцентный контур за портретом: висит на figure — рамка
-   с overflow:hidden его не обрезает */
 .hero-media::before{
   content:"";position:absolute;inset:0;transform:translate(16px,16px);
   border:1.5px solid var(--accent);border-radius:999px 999px 22px 22px;pointer-events:none;
@@ -335,7 +332,8 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
 }
 .case-hero h1{font-family:var(--font-display);font-weight:600;font-size:clamp(2rem,5.6vw,4.6rem);line-height:1.05;letter-spacing:-.01em;max-width:18ch}
 .case-sub{margin-top:16px;font-family:var(--font-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.case-cover{margin-top:clamp(36px,5vw,60px);border-radius:26px;overflow:hidden;aspect-ratio:21/9;background:var(--surface)}
+/* Обложка: 16/9 — под слайды презентации */
+.case-cover{margin-top:clamp(36px,5vw,60px);border-radius:26px;overflow:hidden;aspect-ratio:16/9;background:var(--surface)}
 .case-cover img{width:100%;height:100%;object-fit:cover}
 .case-metrics{
   display:grid;grid-template-columns:repeat(3,1fr);gap:34px;
@@ -352,10 +350,47 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
 }
 .cs-idx{font-family:var(--font-mono);font-size:12px;color:var(--accent);letter-spacing:.14em;display:block;margin-bottom:12px}
 .cs-block h2{font-family:var(--font-display);font-weight:600;font-size:clamp(1.35rem,2.6vw,2rem);letter-spacing:-.01em}
+/* Реальные абзацы внутри секций кейса */
+.cs-block p{max-width:62ch}
+.cs-block p+p{margin-top:1em}
+.cs-block p strong{font-weight:600}
+/* Два трека (Тактика / Стратегия) — зеркалит слайд «Два горизонта» */
+.tracks{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:26px}
+.tracks p{max-width:none}
+/* Подзаголовки-ярлыки внутри секций кейса */
+.case-sublabel{
+  display:block;margin:46px 0 12px;
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);
+}
+.case-sublabel + .slide-grid,.case-sublabel + .tl-list{margin-top:0}
+/* Сетка слайдов презентации (16/9, с подписями) */
+.slide-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
+.slide-grid figure{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--surface)}
+.slide-grid img{aspect-ratio:16/9;width:100%;object-fit:cover}
+.slide-grid figcaption{
+  font-family:var(--font-mono);font-size:11.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);
+  padding:11px 14px;border-top:1px solid var(--line);
+}
+/* Цифры проекта: 4 ячейки, разделители через gap-трюк */
+.stats-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);
+  border-radius:18px;overflow:hidden;margin-top:30px;
+}
+.stat{background:var(--surface);padding:26px 22px}
+.stat-num{font-family:var(--font-display);font-weight:600;font-size:clamp(1.9rem,3.4vw,2.9rem);line-height:1;display:block}
+.stat-lbl{
+  display:block;margin-top:12px;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted);line-height:1.55;
+}
+/* Зарезервировано для будущих кейсов (в кейсе «КПИ» не используется):
+   галерея скриншотов, зона инфографики, вырезки отчётов */
 .cs-media-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
 .cs-media-grid figure{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--surface)}
 .cs-media-grid img{aspect-ratio:16/10;width:100%;object-fit:cover}
-/* Зона под инфографику */
 .infographic-zone{
   margin-top:30px;min-height:340px;border-radius:22px;
   border:1.5px dashed color-mix(in srgb,var(--muted) 55%,transparent);
@@ -366,7 +401,6 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--muted);background:var(--bg);padding:10px 18px;border-radius:999px;border:1px solid var(--line);
 }
-/* Вырезки из отчётов */
 .report-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
 .report-grid figure{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--surface)}
 .report-grid img{aspect-ratio:3/2;width:100%;object-fit:cover}
@@ -374,47 +408,41 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
 /* Финальная метрика */
 .final-metric{padding:clamp(40px,6vw,72px) 0 clamp(8px,2vw,20px)}
 .final-metric .num{font-family:var(--font-display);font-weight:600;font-size:clamp(3.4rem,11vw,8.5rem);line-height:1;letter-spacing:-.01em;color:var(--accent);display:block}
+/* Компактный кегль для длинных значений вроде «200+ → 70+» */
+.final-metric .num.num-fit{font-size:clamp(2.2rem,6.5vw,5.2rem)}
 .final-metric .lbl{display:block;margin-top:16px;font-family:var(--font-mono);font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
 .case-nav{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:40px;margin-top:20px}
 
 /* ============================================================
    МОДУЛЬ CSS-9: «Профиль» (досье) + «Контакты»
    ============================================================ */
-/* Две колонки: слева досье, справа вертикальное фото */
 .about-grid{
   display:grid;grid-template-columns:minmax(0,1fr) clamp(220px,24vw,310px);
   column-gap:clamp(36px,5vw,72px);align-items:start;
 }
-/* Подраздел досье (01)–(04) */
 .about-sub{border-top:1px solid var(--line);padding-top:clamp(24px,3vw,32px);margin-top:clamp(36px,5vw,52px)}
 .about-sub:first-of-type{border-top:0;margin-top:0;padding-top:0}
 .as-head{display:flex;align-items:baseline;gap:14px;margin-bottom:clamp(18px,2.5vw,26px)}
 .as-idx{font-family:var(--font-mono);font-size:12px;color:var(--accent);letter-spacing:.14em}
 .as-head h3{font-family:var(--font-display);font-weight:600;font-size:clamp(1.1rem,1.9vw,1.4rem);letter-spacing:-.01em}
-/* (01) Профессиональный профиль — редакционный лид */
 .about-big{
   font-size:clamp(1.15rem,2.1vw,1.55rem);line-height:1.5;font-weight:500;
   letter-spacing:-.005em;max-width:56ch;
 }
 .about-big strong{font-weight:600}
-/* (02) Компетенции: чипы в две колонки — те же, что на главной */
 .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px}
-/* (03) Инструменты: компактный список, квадрат-маркер
-   перекликается с квадратом логотипа */
 .tools-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;list-style:none;margin:0;padding:0}
 .tools-list li{
   display:flex;align-items:center;gap:12px;
   font-family:var(--font-mono);font-size:13px;color:var(--muted);letter-spacing:.02em;
 }
 .tools-list li::before{content:"";width:6px;height:6px;border-radius:1.5px;background:var(--accent);flex:none}
-/* (04) Образование: записи-строки */
 .edu-item{
   display:grid;grid-template-columns:minmax(120px,160px) 1fr;gap:6px 24px;align-items:baseline;
   padding:16px 0;border-top:1px solid var(--line);
 }
 .edu-school{font-weight:600;font-size:1.05rem}
 .edu-prog{color:var(--muted)}
-/* Вертикальное фото-арка: липнет при прокрутке досье */
 .about-photo{position:sticky;top:96px}
 .about-photo .frame{
   border-radius:999px 999px 22px 22px;overflow:hidden;
@@ -426,7 +454,6 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
 }
 .about-photo img{width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(1)}
 
-/* «Контакты»: гигантский e-mail — акцентный аккорд страницы */
 .contact-big{
   display:inline-flex;align-items:center;gap:.35em;max-width:100%;
   font-family:var(--font-display);font-weight:600;
@@ -454,7 +481,6 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   .cs-block{grid-template-columns:1fr}
   .report-grid{grid-template-columns:1fr 1fr}
 }
-/* 4 пункта меню: компактнее на средних экранах */
 @media (max-width:920px){
   .nav{gap:16px}
   .nav-link{font-size:11px;letter-spacing:.1em}
@@ -463,9 +489,10 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   .hero-grid{grid-template-columns:1fr}
   .hero-title,.hero-media,.hero-side{grid-column:1;grid-row:auto}
   .hero-media{justify-self:start;width:min(78%,340px);margin-top:34px}
-  /* «Профиль»: в одну колонку, фото поднимается над досье */
   .about-grid{grid-template-columns:1fr;row-gap:clamp(28px,4vw,44px)}
   .about-photo{order:-1;max-width:340px;position:static}
+  .tracks{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
   .timeline::before{left:6px}
   .tl-item{grid-template-columns:26px 1fr;row-gap:6px}
   .tl-year{grid-column:2;grid-row:1;padding-top:0}
@@ -480,8 +507,9 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   .nav{display:none}
 }
 @media (max-width:560px){
-  .report-grid,.cs-media-grid{grid-template-columns:1fr}
+  .report-grid,.cs-media-grid,.slide-grid{grid-template-columns:1fr}
   .case-cover{aspect-ratio:4/3}
+  .stats-grid{grid-template-columns:1fr}
   .skills-grid,.tools-list{grid-template-columns:1fr}
   .edu-item{grid-template-columns:1fr;gap:2px}
   .tl-block p,.tl-list li{max-width:100%}
@@ -612,9 +640,6 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
       <span class="sec-note">[ 9.5 лет · 4 компании ]</span>
     </header>
 
-    <!-- Одна запись = одно место работы. Новая запись: скопируйте <li>…</li>
-         целиком и замените текст. Формат: даты в скобках → [ компания ] →
-         роль → Контекст / Мой вклад / Результаты → ссылки на кейсы -->
     <ol class="timeline">
 
       <!-- Запись 1: ГлавНИВЦ -->
@@ -648,7 +673,7 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
             </div>
           </div>
           <div class="tl-links">
-            <a class="case-link" href="#case">Кейс: Дизайн-система с нуля<svg class="ic"><use href="#i-up-right"/></svg></a>
+            <a class="case-link" href="#case">Кейс: Редизайн CRM «КПИ»<svg class="ic"><use href="#i-up-right"/></svg></a>
           </div>
         </div>
       </li>
@@ -772,25 +797,26 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
     </header>
 
     <div class="cases-grid">
-      <!-- Featured-кейс: горизонтальная карточка на всю ширину -->
-      <article class="case-card featured s12 rv" data-goto="case" tabindex="0" role="link" aria-label="Открыть детальный кейс (placeholder)">
+      <!-- Кейс 01 (featured): CRM «КПИ» -->
+      <article class="case-card featured s12 rv" data-goto="case" tabindex="0" role="link" aria-label="Открыть кейс: Редизайн CRM «КПИ»">
         <div class="cc-media">
-          <!-- ◆ ЗАМЕНИТЬ: обложка featured-кейса -->
-          <img src="https://picsum.photos/seed/case-01/1300/900.jpg" alt="Placeholder — project cover 01">
-          <span class="cc-tag">NDA</span>
+          <img src="assets/kpi-cover.png" alt="CRM «КПИ» — страницы после редизайна">
+          <span class="cc-tag">Enterprise</span>
         </div>
         <div class="cc-body">
           <span class="cc-idx">case · 01</span>
-          <h3><span class="ph">[ Название кейса — featured ]</span></h3>
+          <h3>Редизайн CRM «КПИ»</h3>
           <div class="cc-metric">
-            <span class="cc-num ph">+000%</span>
-            <span class="cc-lbl ph">[ ключевая метрика / результат ]</span>
+            <span class="cc-num">2069</span>
+            <span class="cc-lbl">элементов дизайн-системы · тактика и стратегия за 2 месяца</span>
           </div>
         </div>
         <span class="cc-arrow" aria-hidden="true"><svg class="ic"><use href="#i-up-right"/></svg></span>
       </article>
 
-      <!-- Обычные кейсы: асимметричная раскладка 7/5 → 5/7 -->
+      <!-- ◆ НИЖЕ — ШАБЛОНЫ под будущие кейсы. Заполните по образцу карточки выше:
+           img → обложка, cc-tag → тег (NDA/UI/...), h3 → название,
+           cc-num → ключевая цифра, cc-lbl → её расшифровка -->
       <article class="case-card s7 rv" data-goto="case" tabindex="0" role="link" aria-label="Открыть детальный кейс (placeholder)">
         <div class="cc-media">
           <img src="https://picsum.photos/seed/case-02/900/560.jpg" alt="Placeholder — project cover 02">
@@ -867,11 +893,9 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
       <span class="sec-note">9+ лет · B2B / B2G</span>
     </header>
 
-    <!-- Две колонки: слева досье, справа липкое вертикальное фото -->
     <div class="about-grid">
       <div class="about-text">
 
-        <!-- (01) Профессиональный профиль -->
         <section class="about-sub rv">
           <div class="as-head">
             <span class="as-idx">(01)</span>
@@ -880,7 +904,6 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
           <p class="about-big">Продуктовый дизайнер с более чем <strong>9-летним опытом</strong> создания сложных B2B и B2G продуктов. Специализируюсь на высокорегулируемых средах (финтех, госсектор, enterprise), где критически важно найти баланс между требованиями законодательства, техническими ограничениями и потребностями пользователей. Бэкграунд в психологии позволяет исследовать поведение пользователей и проектировать стратегию взаимодействия, а не просто рисовать экраны.</p>
         </section>
 
-        <!-- (02) Ключевые компетенции -->
         <section class="about-sub rv">
           <div class="as-head">
             <span class="as-idx">(02)</span>
@@ -902,7 +925,6 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
           </div>
         </section>
 
-        <!-- (03) Инструменты -->
         <section class="about-sub rv">
           <div class="as-head">
             <span class="as-idx">(03)</span>
@@ -924,7 +946,6 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
           </ul>
         </section>
 
-        <!-- (04) Образование -->
         <section class="about-sub rv">
           <div class="as-head">
             <span class="as-idx">(04)</span>
@@ -953,6 +974,8 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
 </section>
 
 <!-- ======================= СТРАНИЦА: ДЕТАЛЬНЫЙ КЕЙС ======================= -->
+<!-- Кейс 01: Редизайн CRM «КПИ». Новые кейсы: скопируйте секцию целиком,
+     поменяйте id на page-case-02, добавьте имя в PAGES (JS-модуль 3) -->
 <section class="page" id="page-case" data-page="case" hidden>
   <div class="wrap">
     <a class="back-link rv" href="#cases">
@@ -960,86 +983,139 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
       <span data-i18n="backToCases">Все кейсы</span>
     </a>
 
+    <!-- Hero кейса -->
     <header class="case-hero rv">
-      <p class="case-hero-meta"><span class="ph">[ case 01 · NDA · 20XX ]</span></p>
-      <h1><span class="ph">[ Название кейса ]</span></h1>
-      <p class="case-sub"><span class="ph">[ роль · команда · длительность ]</span></p>
+      <p class="case-hero-meta">[ enterprise · дизайн-система · 2026 ]</p>
+      <h1>Редизайн CRM «КПИ»</h1>
+      <p class="case-sub">Платформа управления персоналом · Product Designer / Дизайн-лид · [ май — июнь 2026 ]</p>
     </header>
 
-    <!-- ◆ ЗАМЕНИТЬ: hero-обложка кейса -->
+    <!-- Обложка: слайд «Страницы: Главная» -->
     <figure class="case-cover rv">
-      <img src="https://picsum.photos/seed/case-cover/1800/770.jpg" alt="Placeholder — hero-обложка кейса">
+      <img src="assets/kpi-cover.png" alt="CRM «КПИ» — главная страница после редизайна">
     </figure>
 
+    <!-- Метрики-тизеры -->
     <div class="case-metrics rv">
-      <div class="cm"><span class="num ph">+00%</span><span class="lbl ph">[ описание метрики ]</span></div>
-      <div class="cm"><span class="num ph">+00%</span><span class="lbl ph">[ описание метрики ]</span></div>
-      <div class="cm"><span class="num ph">+00%</span><span class="lbl ph">[ описание метрики ]</span></div>
+      <div class="cm"><span class="num">2069</span><span class="lbl">элементов дизайн-системы</span></div>
+      <div class="cm"><span class="num">20</span><span class="lbl">экранов передано в разработку</span></div>
+      <div class="cm"><span class="num">×4–5</span><span class="lbl">снижение энтропии продукта</span></div>
     </div>
 
+    <!-- (01) Контекст -->
     <section class="cs-block rv">
       <div>
         <span class="cs-idx">(01)</span>
         <h2 data-i18n="secContext">Контекст</h2>
       </div>
-      <div class="ph-block" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div>
+        <p>Заказчик — крупный enterprise-разработчик с 42-летней историей. Задача — редизайн внутренней CRM-системы: продукт построен на устаревшем фреймворке Bootstrap и насчитывает <strong>200+ разрозненных экранов</strong> без единой логики.</p>
+        <p>Ключевая сложность — совместить несовместимое: быстро улучшить текущий продукт («товарный вид» и UX) и одновременно заложить фундамент для будущего перехода на новый технологический стек. Простыми словами: сделать красиво сейчас и не выбросить это потом.</p>
+      </div>
     </section>
 
+    <!-- (02) Решение -->
     <section class="cs-block rv">
       <div>
         <span class="cs-idx">(02)</span>
         <h2 data-i18n="secSolution">Решение</h2>
       </div>
       <div>
-        <div class="ph-block" aria-hidden="true"><i></i><i></i><i></i></div>
-        <!-- ◆ ЗАМЕНИТЬ: скриншоты/схемы решения -->
-        <div class="cs-media-grid">
-          <figure><img src="https://picsum.photos/seed/shot-01/900/560.jpg" alt="Placeholder — скриншот интерфейса 01"></figure>
-          <figure><img src="https://picsum.photos/seed/shot-02/900/560.jpg" alt="Placeholder — скриншот интерфейса 02"></figure>
+        <p>Работа выстроена по двум параллельным трекам — быстрый результат для пользователей и системная база для будущего движка:</p>
+        <div class="tracks">
+          <div>
+            <span class="tl-label">Тактика · быстрый результат</span>
+            <p>Полная инвентаризация всех существующих экранов, затем «скин» — перекраска текущего Bootstrap-интерфейса по новым токенам. В кратчайшие сроки: лучше визуальное восприятие и ниже когнитивная нагрузка на пользователей.</p>
+          </div>
+          <div>
+            <span class="tl-label">Стратегия · будущее</span>
+            <p>Параллельно спроектирована полноценная дизайн-система по принципу «Токены → Атомы → Молекулы → Организмы». Она не зависит от ограничений старого кода и будет работать на новом движке.</p>
+          </div>
+        </div>
+        <div class="slide-grid">
+          <figure>
+            <img src="assets/kpi-strategy.png" alt="Схема: два горизонта — тактика и стратегия">
+            <figcaption>Два горизонта: тактика и стратегия</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/kpi-methodology.png" alt="Схема: методология — от хаоса к атомам">
+            <figcaption>Методология: от хаоса к атомам</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
+    <!-- (03) Доказательства -->
     <section class="cs-block rv">
       <div>
         <span class="cs-idx">(03)</span>
         <h2 data-i18n="secEvidence">Доказательства</h2>
       </div>
       <div>
-        <div class="ph-block" aria-hidden="true"><i></i><i></i></div>
-        <!-- ◆ Место под инфографику: вставьте сюда график/чарт/диаграмму -->
-        <div class="infographic-zone">
-          <span class="zone-cap mono">[ место под инфографику / график ]</span>
+        <p>Создана фундаментальная система, которая перевела продукт из состояния «хаоса» в структурированные компоненты:</p>
+
+        <!-- Цифры и метрики -->
+        <div class="stats-grid">
+          <div class="stat"><span class="stat-num">166</span><span class="stat-lbl">дизайн-токенов: цвета, шрифты, отступы</span></div>
+          <div class="stat"><span class="stat-num">99</span><span class="stat-lbl">стилей: типографика, тени, скругления, сетки</span></div>
+          <div class="stat"><span class="stat-num">2069</span><span class="stat-lbl">элементов библиотеки: ~80 компонентов × все состояния</span></div>
+          <div class="stat"><span class="stat-num">20</span><span class="stat-lbl">экранов и модальных окон передано фронтенду</span></div>
         </div>
-        <!-- ◆ Место под вырезки из отчётов -->
-        <div class="report-grid">
+
+        <!-- Страницы: тактический скин -->
+        <span class="case-sublabel">Страницы · тактический скин</span>
+        <div class="slide-grid">
           <figure>
-            <img src="https://picsum.photos/seed/report-01/700/470.jpg" alt="Placeholder — вырезка из отчёта 01">
-            <figcaption class="ph">[ вырезка из отчёта 01 ]</figcaption>
+            <img src="assets/kpi-pages-settings.png" alt="CRM «КПИ» — настройка приложения">
+            <figcaption>Настройка приложения</figcaption>
           </figure>
           <figure>
-            <img src="https://picsum.photos/seed/report-02/700/470.jpg" alt="Placeholder — вырезка из отчёта 02">
-            <figcaption class="ph">[ вырезка из отчёта 02 ]</figcaption>
+            <img src="assets/kpi-pages-roles.png" alt="CRM «КПИ» — ролевая модель">
+            <figcaption>Ролевая модель</figcaption>
+          </figure>
+        </div>
+
+        <!-- Компоненты: дизайн-система -->
+        <span class="case-sublabel">Компоненты · дизайн-система</span>
+        <div class="slide-grid">
+          <figure>
+            <img src="assets/kpi-ui-nav.png" alt="Компоненты: навигация и оверлеи">
+            <figcaption>Навигация и оверлеи — все состояния</figcaption>
           </figure>
           <figure>
-            <img src="https://picsum.photos/seed/report-03/700/470.jpg" alt="Placeholder — вырезка из отчёта 03">
-            <figcaption class="ph">[ вырезка из отчёта 03 ]</figcaption>
+            <img src="assets/kpi-ui-buttons.png" alt="Компоненты: кнопки и группы кнопок">
+            <figcaption>Кнопки и группы кнопок</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/kpi-ui-datepicker.png" alt="Компоненты: датапикер">
+            <figcaption>Датапикер</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/kpi-ui-typography.png" alt="Компоненты: типографика">
+            <figcaption>Типографика: заголовки и текст</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
+    <!-- (04) Итоги -->
     <section class="cs-block rv">
       <div>
         <span class="cs-idx">(04)</span>
         <h2 data-i18n="secOutcomes">Итоги</h2>
       </div>
       <div>
-        <div class="ph-block" aria-hidden="true"><i></i><i></i><i></i></div>
+        <p>Переход от 200+ разрозненных артефактов к 70+ системным элементам: энтропия продукта снизилась в 4–5 раз. Каждый компонент получил полную спецификацию и готов к передаче в разработку.</p>
         <div class="final-metric">
-          <span class="num ph">+000%</span>
-          <span class="lbl ph">[ главная цифра проекта ]</span>
+          <span class="num num-fit">200+ → 70+</span>
+          <span class="lbl">артефактов → системных компонентов</span>
         </div>
+        <span class="case-sublabel">Ценность для бизнеса</span>
+        <ul class="tl-list">
+          <li><strong>Без шока для пользователей</strong> — тактический скин даёт постепенное улучшение вместо резкой смены интерфейса</li>
+          <li><strong>Экономия ресурсов</strong> — компоненты спроектированы под новый движок: при миграции не придётся перерисовывать всё с нуля</li>
+          <li><strong>Валидация на живом продукте</strong> — скин на текущем Bootstrap стал полигоном для проверки компонентов дизайн-системы в условиях живой вёрстки</li>
+        </ul>
       </div>
     </section>
 
