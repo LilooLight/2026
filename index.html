@@ -5,12 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Мария Мишина — Senior Product Designer</title>
 <!--
-  Портфолио — Мария Мишина · сборка №10
-  Что нового: запись 2012–2016 в таймлайне обобщена — вместо «Прогрэсдис»
-  теперь «IT-компании-подрядчики» (разработка и внедрение информационных
-  систем); описание записи сохранено без изменений.
-  Файлы фото: assets/portrait.jpg, assets/about.jpg, assets/kpi-*.png (9 шт),
-  assets/altera-*.png (5 шт).
+  Портфолио — Мария Мишина · сборка №11
+  Что нового: контакты заполнены — Telegram (@MyxaZlaya) основным каноном
+  (гигантская ссылка), email / телефон / LinkedIn — строками ниже; иконки
+  в hero и футере реальные (4 шт, Telegram первым); из таймлайна убраны
+  ссылки «Кейс: SmartCare» и «Кейс: Бизнес-портал» (страниц кейсов ещё нет,
+  вернём вместе с текстами: #smartcare, #otkrytie).
+  Файлы фото: assets/portrait.jpg, assets/about.jpg, assets/kpi-*.png (9),
+  assets/altera-*.png (5).
   Обновление: ✏️ Edit на GitHub → Ctrl+A → вставить → Commit.
 -->
 
@@ -424,8 +426,8 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;
   text-transform:uppercase;color:var(--muted);line-height:1.55;
 }
-/* Зарезервировано для будущих кейсов (в кейсах «КПИ» и «Альтера»
-   не используется): галерея скриншотов, зона инфографики, вырезки отчётов */
+/* Зарезервировано для будущих кейсов: галерея скриншотов,
+   зона инфографики, вырезки отчётов */
 .cs-media-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
 .cs-media-grid figure{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--surface)}
 .cs-media-grid img{aspect-ratio:16/10;width:100%;object-fit:cover}
@@ -492,6 +494,12 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
 }
 .about-photo img{width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(1)}
 
+/* «Контакты»: подсказка над главным каналом */
+.contact-hint{
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:18px;
+}
+/* «Контакты»: главный канал — гигантская ссылка (Telegram) */
 .contact-big{
   display:inline-flex;align-items:center;gap:.35em;max-width:100%;
   font-family:var(--font-display);font-weight:600;
@@ -501,9 +509,20 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
 }
 .contact-big .ic{width:.55em;height:.55em;flex:none}
 .contact-big:hover{color:var(--accent);border-color:var(--accent)}
-.contact-row-lg{margin-top:clamp(28px,4vw,44px)}
-.contact-row-lg .iconbtn{width:52px;height:52px}
-#page-contacts .ph-block{margin-top:clamp(28px,4vw,44px)}
+/* «Контакты»: остальные каналы — строки-записи */
+.contact-list{margin-top:clamp(36px,5vw,56px);border-top:1px solid var(--line)}
+.contact-item{
+  display:grid;grid-template-columns:46px 120px 1fr auto;align-items:center;
+  gap:18px;padding:20px 4px;border-bottom:1px solid var(--line);
+  transition:color .3s;
+}
+.contact-item > .ic:first-child{width:20px;height:20px;color:var(--muted);transition:color .3s}
+.contact-item:hover > .ic:first-child{color:var(--accent)}
+.contact-item:hover{color:var(--accent)}
+.ci-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.ci-value{font-size:clamp(1rem,1.6vw,1.2rem);font-weight:500;word-break:break-word}
+.ci-arrow{width:16px;height:16px;color:var(--muted);transition:color .3s,transform .3s}
+.contact-item:hover .ci-arrow{color:var(--accent);transform:translate(3px,-3px)}
 
 /* ============================================================
    МОДУЛЬ CSS-10: футер + адаптив
@@ -552,6 +571,8 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   .edu-item{grid-template-columns:1fr;gap:2px}
   .tl-block p,.tl-list li{max-width:100%}
   .proto-cta-note{margin-left:0;max-width:100%}
+  .contact-item{grid-template-columns:38px 1fr auto}
+  .ci-label{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -572,8 +593,7 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
     <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></symbol>
     <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
-    <symbol id="i-dribbble" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32M8.56 2.75c4.37 6 6 9.42 8 17.72"/></symbol>
-    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
   </defs>
 </svg>
 
@@ -643,13 +663,12 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
           <span class="chip">AI Interfaces</span>
         </div>
 
-        <!-- ◆ ЕЩЁ ПЛЕЙСХОЛДЕРЫ: замените href на ваши профили -->
+        <!-- Контакты: Telegram — основной канал, поэтому первым -->
         <div class="contact-row rv">
-          <a class="iconbtn" href="#" aria-label="Email (placeholder)"><svg class="ic"><use href="#i-mail"/></svg></a>
-          <a class="iconbtn" href="#" aria-label="Telegram (placeholder)"><svg class="ic"><use href="#i-send"/></svg></a>
-          <a class="iconbtn" href="#" aria-label="LinkedIn (placeholder)"><svg class="ic"><use href="#i-linkedin"/></svg></a>
-          <a class="iconbtn" href="#" aria-label="Dribbble (placeholder)"><svg class="ic"><use href="#i-dribbble"/></svg></a>
-          <a class="iconbtn" href="#" aria-label="Behance / сайт (placeholder)"><svg class="ic"><use href="#i-globe"/></svg></a>
+          <a class="iconbtn" href="https://t.me/MyxaZlaya" target="_blank" rel="noopener" aria-label="Telegram — @MyxaZlaya"><svg class="ic"><use href="#i-send"/></svg></a>
+          <a class="iconbtn" href="mailto:mishina.maria.v@yandex.ru" aria-label="Email — mishina.maria.v@yandex.ru"><svg class="ic"><use href="#i-mail"/></svg></a>
+          <a class="iconbtn" href="https://ru.linkedin.com/in/liloolight" target="_blank" rel="noopener" aria-label="LinkedIn — Мария Мишина"><svg class="ic"><use href="#i-linkedin"/></svg></a>
+          <a class="iconbtn" href="tel:+79800503360" aria-label="Телефон — +7 (980) 050-33-60"><svg class="ic"><use href="#i-phone"/></svg></a>
         </div>
 
         <div class="hero-cta rv">
@@ -681,7 +700,7 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
 
     <ol class="timeline">
 
-      <!-- Запись 1: ГлавНИВЦ -->
+      <!-- Запись 1: ГлавНИВЦ. Оба кейса — из этого места работы -->
       <li class="tl-item rv">
         <span class="tl-year">[ 2025 ]</span>
         <span class="tl-node" aria-hidden="true"></span>
@@ -718,8 +737,9 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
         </div>
       </li>
 
-      <!-- Запись 2: Сбербанк. ◆ Ссылка временно ведёт на страницу «Кейсы» —
-           страница кейса SmartCare ещё не написана -->
+      <!-- Запись 2: Сбербанк.
+           ◆ Ссылка «Кейс: SmartCare» вернётся сюда, когда будет готова
+           страница кейса #smartcare — пока её нет, ссылки не должно быть -->
       <li class="tl-item rv">
         <span class="tl-year">[ 2023 — 2025 ]</span>
         <span class="tl-node" aria-hidden="true"></span>
@@ -749,13 +769,11 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
               </ul>
             </div>
           </div>
-          <div class="tl-links">
-            <a class="case-link" href="#cases">Кейс: SmartCare<svg class="ic"><use href="#i-up-right"/></svg></a>
-          </div>
         </div>
       </li>
 
-      <!-- Запись 3: Банк «ФК Открытие». ◆ Ссылка временно ведёт на «Кейсы» -->
+      <!-- Запись 3: Банк «ФК Открытие».
+           ◆ Ссылка «Кейс: Бизнес-портал для МСБ» вернётся со страницей #otkrytie -->
       <li class="tl-item rv">
         <span class="tl-year">[ 2016 — 2023 ]</span>
         <span class="tl-node" aria-hidden="true"></span>
@@ -785,9 +803,6 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
                 <li>Вхождение в <strong>Топ-10</strong> интернет-банков по версии Markswebb</li>
               </ul>
             </div>
-          </div>
-          <div class="tl-links">
-            <a class="case-link" href="#cases">Кейс: Бизнес-портал для МСБ<svg class="ic"><use href="#i-up-right"/></svg></a>
           </div>
         </div>
       </li>
@@ -872,9 +887,9 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
         <span class="cc-arrow" aria-hidden="true"><svg class="ic"><use href="#i-up-right"/></svg></span>
       </article>
 
-      <!-- ◆ НИЖЕ — ШАБЛОНЫ под будущие кейсы. Заполните по образцу выше:
-           img → обложка, cc-tag → тег (NDA/UI/...), h3 → название,
-           cc-num → ключевая цифра, cc-lbl → её расшифровка -->
+      <!-- ◆ НИЖЕ — ШАБЛОНЫ под будущие кейсы (SmartCare, Бизнес-портал МСБ).
+           Заполните по образцу выше: img → обложка, cc-tag → тег (NDA/UI/...),
+           h3 → название, cc-num → ключевая цифра, cc-lbl → её расшифровка -->
       <article class="case-card s5 rv" data-goto="case" tabindex="0" role="link" aria-label="Открыть детальный кейс (placeholder)">
         <div class="cc-media">
           <img src="https://picsum.photos/seed/case-03/900/560.jpg" alt="Placeholder — project cover 03">
@@ -1314,25 +1329,37 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
     <header class="sec-head rv">
       <span class="sec-idx mono">(04)</span>
       <h2 data-i18n="secContacts">Контакты</h2>
-      <span class="sec-note ph">[ открыт(а) к предложениям · GMT+3 ]</span>
+      <span class="sec-note">[ открыта к предложениям · GMT+3 ]</span>
     </header>
 
-    <!-- ◆ ЗАМЕНИТЬ: главный e-mail + href="mailto:..." -->
-    <a class="contact-big rv" href="mailto:hello@example.com">
-      <span class="ph">[ your@email.com ]</span>
-      <svg class="ic"><use href="#i-up-right"/></svg>
+    <!-- Основной канал: Telegram -->
+    <p class="contact-hint rv">[ основной способ связи · telegram ]</p>
+    <a class="contact-big rv" href="https://t.me/MyxaZlaya" target="_blank" rel="noopener">
+      <svg class="ic" aria-hidden="true"><use href="#i-send"/></svg>
+      <span>@MyxaZlaya</span>
     </a>
 
-    <!-- ◆ ЗАМЕНИТЬ: те же соцсети, что в hero и футере — href на ваши профили -->
-    <div class="contact-row contact-row-lg rv">
-      <a class="iconbtn" href="#" aria-label="Email (placeholder)"><svg class="ic"><use href="#i-mail"/></svg></a>
-      <a class="iconbtn" href="#" aria-label="Telegram (placeholder)"><svg class="ic"><use href="#i-send"/></svg></a>
-      <a class="iconbtn" href="#" aria-label="LinkedIn (placeholder)"><svg class="ic"><use href="#i-linkedin"/></svg></a>
-      <a class="iconbtn" href="#" aria-label="Dribbble (placeholder)"><svg class="ic"><use href="#i-dribbble"/></svg></a>
-      <a class="iconbtn" href="#" aria-label="Behance / сайт (placeholder)"><svg class="ic"><use href="#i-globe"/></svg></a>
+    <!-- Остальные каналы связи -->
+    <div class="contact-list rv">
+      <a class="contact-item" href="mailto:mishina.maria.v@yandex.ru">
+        <svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>
+        <span class="ci-label mono">email</span>
+        <span class="ci-value">mishina.maria.v@yandex.ru</span>
+        <svg class="ic ci-arrow" aria-hidden="true"><use href="#i-up-right"/></svg>
+      </a>
+      <a class="contact-item" href="tel:+79800503360">
+        <svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>
+        <span class="ci-label mono">телефон</span>
+        <span class="ci-value">+7 (980) 050-33-60</span>
+        <svg class="ic ci-arrow" aria-hidden="true"><use href="#i-up-right"/></svg>
+      </a>
+      <a class="contact-item" href="https://ru.linkedin.com/in/liloolight" target="_blank" rel="noopener">
+        <svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg>
+        <span class="ci-label mono">linkedin</span>
+        <span class="ci-value">linkedin.com/in/liloolight</span>
+        <svg class="ic ci-arrow" aria-hidden="true"><use href="#i-up-right"/></svg>
+      </a>
     </div>
-
-    <div class="ph-block rv" aria-hidden="true"><i></i><i></i></div>
   </div>
 </section>
 
@@ -1341,13 +1368,12 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
 <!-- ======================= ФУТЕР ======================= -->
 <footer class="site-foot">
   <div class="wrap foot-in">
-    <span class="foot-note ph">[ © Мария Мишина · 2026 ]</span>
+    <span class="foot-note">© Мария Мишина · 2026</span>
     <div class="foot-socials">
-      <a class="iconbtn" href="#" aria-label="Email (placeholder)"><svg class="ic"><use href="#i-mail"/></svg></a>
-      <a class="iconbtn" href="#" aria-label="Telegram (placeholder)"><svg class="ic"><use href="#i-send"/></svg></a>
-      <a class="iconbtn" href="#" aria-label="LinkedIn (placeholder)"><svg class="ic"><use href="#i-linkedin"/></svg></a>
-      <a class="iconbtn" href="#" aria-label="Dribbble (placeholder)"><svg class="ic"><use href="#i-dribbble"/></svg></a>
-      <a class="iconbtn" href="#" aria-label="Behance / сайт (placeholder)"><svg class="ic"><use href="#i-globe"/></svg></a>
+      <a class="iconbtn" href="https://t.me/MyxaZlaya" target="_blank" rel="noopener" aria-label="Telegram — @MyxaZlaya"><svg class="ic"><use href="#i-send"/></svg></a>
+      <a class="iconbtn" href="mailto:mishina.maria.v@yandex.ru" aria-label="Email — mishina.maria.v@yandex.ru"><svg class="ic"><use href="#i-mail"/></svg></a>
+      <a class="iconbtn" href="https://ru.linkedin.com/in/liloolight" target="_blank" rel="noopener" aria-label="LinkedIn — Мария Мишина"><svg class="ic"><use href="#i-linkedin"/></svg></a>
+      <a class="iconbtn" href="tel:+79800503360" aria-label="Телефон — +7 (980) 050-33-60"><svg class="ic"><use href="#i-phone"/></svg></a>
     </div>
   </div>
 </footer>
@@ -1467,6 +1493,8 @@ setLang(store.get('lang') || 'ru');
 
 /* ============================================================
    МОДУЛЬ JS-3: мини-роутер (7 «страниц» без перезагрузки)
+   Новые кейсы (SmartCare, Открытие): добавьте секцию с
+   data-page="smartcare" и имя в PAGES ниже.
    ============================================================ */
 const PAGES = ['hero','about','experience','cases','case','altera','contacts'];
 function showPage(name){
