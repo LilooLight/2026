@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Мария Мишина — Senior Product Designer</title>
 <!--
-  Портфолио — Мария Мишина · сборка №3
-  Контентный hero + монограмма MM + бегущая строка из словаря i18n
-  + страницы «Обо мне» и «Контакты».
-  Обновление: заменять файл целиком (✏️ Edit на GitHub).
+  Портфолио — Мария Мишина · сборка №4
+  Что нового: меню «Опыт → Кейсы → Обо мне → Контакты»; страница «Обо мне»
+  с текстом (4 абзаца) и вертикальным фото-аркой (assets/about.jpg);
+  перенумерованы разделы; починен акцентный контур арки на главной.
+  Файлы фото: assets/portrait.jpg (главная), assets/about.jpg (обо мне).
+  Обновление: ✏️ Edit на GitHub → Ctrl+A → вставить → Commit.
 -->
 
 <!-- Шрифты: Unbounded (display) / Golos Text (текст) / JetBrains Mono (мета) / Noto Sans SC (中文) -->
@@ -169,8 +171,10 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   grid-column:2;grid-row:2;position:relative;justify-self:end;
   width:min(100%,420px);margin-top:-clamp(48px,7vw,110px);
 }
-.hero-media .frame{position:relative;border-radius:999px 999px 22px 22px;overflow:hidden;aspect-ratio:3/3.9;background:var(--surface)}
-.hero-media .frame::before{
+.hero-media .frame{border-radius:999px 999px 22px 22px;overflow:hidden;aspect-ratio:3/3.9;background:var(--surface)}
+/* Акцентный контур за портретом: висит на figure — тогда рамка
+   с overflow:hidden его не обрезает (в сборке №3 обрезала) */
+.hero-media::before{
   content:"";position:absolute;inset:0;transform:translate(16px,16px);
   border:1.5px solid var(--accent);border-radius:999px 999px 22px 22px;pointer-events:none;
 }
@@ -358,9 +362,33 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
 /* ============================================================
    МОДУЛЬ CSS-9: «Обо мне» + «Контакты»
    ============================================================ */
-/* «Обо мне»: крупный вводный абзац */
-.about-lead{max-width:840px;padding-top:clamp(8px,2vw,20px)}
-.about-big{font-size:clamp(1.3rem,2.8vw,1.9rem);line-height:1.45;font-weight:500;letter-spacing:-.005em}
+/* «Обо мне»: две колонки — текст слева, вертикальное фото справа */
+.about-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) clamp(220px,24vw,310px);
+  column-gap:clamp(36px,5vw,72px);align-items:start;
+  padding-top:clamp(8px,2vw,20px);
+}
+/* Первый абзац — редакционный лид, крупнее остальных */
+.about-text .about-big{
+  font-size:clamp(1.2rem,2.3vw,1.7rem);line-height:1.45;font-weight:500;
+  letter-spacing:-.005em;margin-bottom:1.4em;
+}
+.about-text p{max-width:60ch;line-height:1.75}
+.about-text p+p{margin-top:1.15em}
+.about-text strong{font-weight:600}
+/* Вертикальное фото-арка — перекликается с портретом на главной;
+   контур смещён влево-вниз, «смотрит» в текст */
+.about-photo{position:relative}
+.about-photo .frame{
+  border-radius:999px 999px 22px 22px;overflow:hidden;
+  aspect-ratio:3/3.9;background:var(--surface);
+}
+.about-photo::before{
+  content:"";position:absolute;inset:0;transform:translate(-16px,16px);
+  border:1.5px solid var(--accent);border-radius:999px 999px 22px 22px;pointer-events:none;
+}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(1)}
+
 /* «Контакты»: гигантский e-mail — акцентный аккорд страницы */
 .contact-big{
   display:inline-flex;align-items:center;gap:.35em;max-width:100%;
@@ -398,6 +426,9 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   .hero-grid{grid-template-columns:1fr}
   .hero-title,.hero-media,.hero-side{grid-column:1;grid-row:auto}
   .hero-media{justify-self:start;width:min(78%,340px);margin-top:34px}
+  /* «Обо мне»: в одну колонку, фото поднимается над текстом */
+  .about-grid{grid-template-columns:1fr;row-gap:clamp(28px,4vw,44px)}
+  .about-photo{order:-1;max-width:340px}
   .timeline::before{left:6px}
   .tl-item{grid-template-columns:26px 1fr;row-gap:6px}
   .tl-year{grid-column:2;grid-row:1;padding-top:0}
@@ -444,9 +475,9 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   <div class="topbar-in">
     <a href="#home" class="brand">MM<span class="brand-sq" aria-hidden="true"></span></a>
     <nav class="nav">
-      <a class="nav-link" href="#about" data-i18n="navAbout">Обо мне</a>
       <a class="nav-link" href="#experience" data-i18n="navExp">Опыт</a>
       <a class="nav-link" href="#cases" data-i18n="navCases">Кейсы</a>
+      <a class="nav-link" href="#about" data-i18n="navAbout">Обо мне</a>
       <a class="nav-link" href="#contacts" data-i18n="navContacts">Контакты</a>
     </nav>
     <div class="controls">
@@ -482,10 +513,10 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
         <span class="line">Мишина<span class="dot" aria-hidden="true"></span></span>
       </h1>
 
-      <!-- Портрет в арке: файл assets/portrait.jpg (см. шаг 2 инструкции) -->
+      <!-- Портрет в арке: файл assets/portrait.jpg -->
       <figure class="hero-media rv">
         <div class="frame">
-          <img src="assets/portrait.jpg" alt="Мария Мишина — фото">
+          <img src="assets/portrait.jpg" alt="Мария Мишина — портрет">
         </div>
       </figure>
 
@@ -524,8 +555,7 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
       </div>
     </div>
 
-    <!-- Бегущая строка: слова берутся из I18N[lang].marquee (JS-модуль 2),
-         дубль для бесшовной петли создаётся автоматически -->
+    <!-- Бегущая строка: слова берутся из I18N[lang].marquee (JS-модуль 2) -->
     <div class="marquee rv" aria-hidden="true">
       <div class="marquee-track"></div>
     </div>
@@ -533,44 +563,11 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   </div>
 </section>
 
-<!-- ======================= СТРАНИЦА: ОБО МНЕ ======================= -->
-<section class="page" id="page-about" data-page="about" hidden>
-  <div class="wrap">
-    <header class="sec-head rv">
-      <span class="sec-idx mono">(01)</span>
-      <h2 data-i18n="secAbout">Обо мне</h2>
-      <span class="sec-note ph">[ факты: образование · сертификаты · языки ]</span>
-    </header>
-
-    <!-- ◆ ЗАМЕНИТЬ: вводный абзац — крупным шрифтом -->
-    <div class="about-lead rv">
-      <p class="about-big"><span class="ph">[ вводный абзац: 2–3 предложения — кто вы, чем сильны, что любите в работе ]</span></p>
-    </div>
-
-    <!-- ◆ ЗАМЕНИТЬ: блоки под подтемы (подход / принципы / образование) -->
-    <section class="cs-block rv">
-      <div>
-        <span class="cs-idx">(01)</span>
-        <h2 class="ph">[ заголовок блока — например, подход ]</h2>
-      </div>
-      <div class="ph-block" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-    </section>
-
-    <section class="cs-block rv">
-      <div>
-        <span class="cs-idx">(02)</span>
-        <h2 class="ph">[ заголовок блока — например, образование ]</h2>
-      </div>
-      <div class="ph-block" aria-hidden="true"><i></i><i></i><i></i></div>
-    </section>
-  </div>
-</section>
-
-<!-- ======================= СТРАНИЦА 2: ОПЫТ РАБОТЫ ======================= -->
+<!-- ======================= СТРАНИЦА: ОПЫТ РАБОТЫ ======================= -->
 <section class="page" id="page-experience" data-page="experience" hidden>
   <div class="wrap">
     <header class="sec-head rv">
-      <span class="sec-idx mono">(02)</span>
+      <span class="sec-idx mono">(01)</span>
       <h2 data-i18n="secExperience">Опыт работы</h2>
       <span class="sec-note ph">[ 9.5 лет · N компаний ]</span>
     </header>
@@ -586,7 +583,6 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
             <span class="tl-role ph">[ должность · level ]</span>
           </div>
           <div class="ph-block" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-          <!-- ◆ Ссылки на кейсы: первая — с переводимым лейблом, вторая — слот -->
           <div class="tl-links">
             <a class="case-link" href="#case">
               <span data-i18n="linkOpenCase">Открыть кейс</span>
@@ -651,11 +647,11 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   </div>
 </section>
 
-<!-- ======================= СТРАНИЦА 3: КЕЙСЫ ======================= -->
+<!-- ======================= СТРАНИЦА: КЕЙСЫ ======================= -->
 <section class="page" id="page-cases" data-page="cases" hidden>
   <div class="wrap">
     <header class="sec-head rv">
-      <span class="sec-idx mono">(03)</span>
+      <span class="sec-idx mono">(02)</span>
       <h2 data-i18n="secCases">Кейсы</h2>
       <span class="sec-note ph">[ всего: N ]</span>
     </header>
@@ -747,7 +743,45 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   </div>
 </section>
 
-<!-- ======================= СТРАНИЦА 4: ДЕТАЛЬНЫЙ КЕЙС ======================= -->
+<!-- ======================= СТРАНИЦА: ОБО МНЕ ======================= -->
+<section class="page" id="page-about" data-page="about" hidden>
+  <div class="wrap">
+    <header class="sec-head rv">
+      <span class="sec-idx mono">(03)</span>
+      <h2 data-i18n="secAbout">Обо мне</h2>
+      <span class="sec-note ph">[ факты: образование · сертификаты · языки ]</span>
+    </header>
+
+    <!-- Две колонки: слева текст, справа вертикальное фото-арка -->
+    <div class="about-grid rv">
+      <div class="about-text">
+        <p class="about-big">Я — продуктовый дизайнер с более чем <strong>9-летним опытом</strong> создания сложных B2B и B2G продуктов. Моя специализация — высокорегулируемые среды (финтех, госсектор, enterprise), где критически важно найти баланс между строгими требованиями законодательства, техническими ограничениями и реальными потребностями пользователей.</p>
+        <p>Мой бэкграунд в психологии позволяет мне смотреть на продукт глубже, чем просто на «интерфейсы». Я исследую поведение пользователей, выстраиваю логику их действий и превращаю сложные процессы в интуитивно понятные сценарии. Я не просто рисую экраны — я проектирую стратегию взаимодействия.</p>
+        <p>Мой путь начался с проектирования порталов для Правительства Москвы и Московской Биржи, затем 7 лет развития флагманского «Бизнес-портала» в банке «Открытие» (который вошел в Топ-10 по версии Markswebb), и последний опыт — работа над AI-интерфейсами в Сбере и создание дизайн-системы с нуля в legacy-среде ГлавНИВЦ. Это дало мне уникальную способность быстро адаптироваться к любому контексту, наводить порядок в хаосе и выстраивать процессы там, где их никогда не было.</p>
+        <p>Мне нравится лидировать и выращивать команды. За время работы я выросла <strong>от Senior до Lead</strong> и увеличила дизайн-команду <strong>с 3 до 12 человек</strong>. Я умею работать с продуктовыми менеджерами, разработчиками и бизнесом, защищать дизайн-решения и доводить их до результата.</p>
+      </div>
+
+      <!-- ◆ Вертикальное фото: файл assets/about.jpg -->
+      <figure class="about-photo">
+        <div class="frame">
+          <img src="assets/about.jpg" alt="Мария Мишина — вертикальный портрет">
+        </div>
+      </figure>
+    </div>
+
+    <!-- ◆ ОПЦИОНАЛЬНО: блок под факты (образование, сертификаты, языки).
+         Не нужен — удалите этот <section> целиком -->
+    <section class="cs-block rv">
+      <div>
+        <span class="cs-idx">(01)</span>
+        <h2 class="ph">[ образование · сертификаты · языки ]</h2>
+      </div>
+      <div class="ph-block" aria-hidden="true"><i></i><i></i><i></i></div>
+    </section>
+  </div>
+</section>
+
+<!-- ======================= СТРАНИЦА: ДЕТАЛЬНЫЙ КЕЙС ======================= -->
 <section class="page" id="page-case" data-page="case" hidden>
   <div class="wrap">
     <a class="back-link rv" href="#cases">
