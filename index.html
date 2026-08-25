@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Мария Мишина — Senior Product Designer</title>
 <!--
-  Портфолио — Мария Мишина · сборка №5
-  Что нового: «Обо мне» → «Профиль» (формат досье): подразделы
-  (01) Профессиональный профиль, (02) Ключевые компетенции (чипы, 2 колонки),
-  (03) Инструменты (список, 2 колонки), (04) Образование;
-  фото в колонке — липкое при скролле.
+  Портфолио — Мария Мишина · сборка №6
+  Что нового: таймлайн «Опыт работы» заполнен (4 записи: ГлавНИВЦ, Сбербанк,
+  Банк «ФК Открытие», Прогрэсдис) в едином формате: даты в скобках слева,
+  компания в скобках + роль, блоки Контекст / Мой вклад / Результаты,
+  именные ссылки на кейсы. Подписи блоков переводятся (i18n).
   Файлы фото: assets/portrait.jpg (главная), assets/about.jpg (профиль).
   Обновление: ✏️ Edit на GitHub → Ctrl+A → вставить → Commit.
 -->
@@ -68,7 +68,8 @@ body::before{
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* --- Система плейсхолдеров: всё с классом .ph подлежит замене --- */
+/* --- Плейсхолдеры: .ph (пунктирное подчёркивание) — ещё не заполнено.
+     Скобки без .ph — осознанный стиль метаданных --- */
 .ph{
   color:var(--muted);
   text-decoration:underline dotted;
@@ -236,7 +237,7 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
 .timeline::before{content:"";position:absolute;top:44px;bottom:44px;left:198px;width:1px;background:var(--line)}
 .tl-item{
   display:grid;grid-template-columns:178px 40px minmax(0,1fr);
-  padding:30px 0;border-radius:18px;transition:background .3s;
+  padding:34px 0;border-radius:18px;transition:background .3s;
 }
 .tl-item:hover{background:color-mix(in srgb,var(--surface) 70%,transparent)}
 .tl-year{font-family:var(--font-mono);font-size:13px;letter-spacing:.04em;padding-top:7px}
@@ -251,7 +252,23 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
 .tl-top{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
 .tl-top h3{font-size:clamp(1.15rem,2vw,1.45rem);font-weight:600}
 .tl-role{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-.tl-links{display:flex;gap:26px;margin-top:18px;flex-wrap:wrap}
+/* Смысловые блоки записи: Контекст / Мой вклад / Результаты */
+.tl-desc{margin-top:22px;display:flex;flex-direction:column;gap:22px}
+.tl-label{
+  display:block;
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:8px;
+}
+.tl-block p{max-width:62ch}
+.tl-list{list-style:none}
+.tl-list li{position:relative;padding-left:19px;max-width:62ch}
+.tl-list li+li{margin-top:6px}
+.tl-list li::before{
+  content:"";position:absolute;left:0;top:.5em;
+  width:6px;height:6px;border-radius:1.5px;background:var(--accent);
+}
+.tl-list strong,.tl-block p strong{font-weight:600}
+.tl-links{display:flex;gap:26px;margin-top:24px;flex-wrap:wrap}
 .case-link{
   display:inline-flex;align-items:center;gap:8px;
   font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.12em;
@@ -467,6 +484,7 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   .case-cover{aspect-ratio:4/3}
   .skills-grid,.tools-list{grid-template-columns:1fr}
   .edu-item{grid-template-columns:1fr;gap:2px}
+  .tl-block p,.tl-list li{max-width:100%}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -591,80 +609,155 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
     <header class="sec-head rv">
       <span class="sec-idx mono">(01)</span>
       <h2 data-i18n="secExperience">Опыт работы</h2>
-      <span class="sec-note ph">[ 9.5 лет · N компаний ]</span>
+      <span class="sec-note">[ 9.5 лет · 4 компании ]</span>
     </header>
 
+    <!-- Одна запись = одно место работы. Новая запись: скопируйте <li>…</li>
+         целиком и замените текст. Формат: даты в скобках → [ компания ] →
+         роль → Контекст / Мой вклад / Результаты → ссылки на кейсы -->
     <ol class="timeline">
-      <!-- ◆ ЗАМЕНИТЬ: одна запись = одно место работы. Копируйте <li> для новых -->
+
+      <!-- Запись 1: ГлавНИВЦ -->
       <li class="tl-item rv">
-        <span class="tl-year ph">[ 20XX — 20XX ]</span>
+        <span class="tl-year">[ май — авг 2026 ]</span>
         <span class="tl-node" aria-hidden="true"></span>
         <div class="tl-body">
           <div class="tl-top">
-            <h3><span class="ph">[ Название компании ]</span></h3>
-            <span class="tl-role ph">[ должность · level ]</span>
+            <h3>[ ГлавНИВЦ ]</h3>
+            <span class="tl-role">Product Designer · Консалтинг</span>
           </div>
-          <div class="ph-block" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="tl-desc">
+            <div class="tl-block">
+              <span class="tl-label" data-i18n="tlContext">Контекст</span>
+              <p>Крупнейшее IT-предприятие госсектора с 42-летней историей. На момент старта — полное отсутствие дизайн-функции.</p>
+            </div>
+            <div class="tl-block">
+              <span class="tl-label" data-i18n="tlInput">Мой вклад</span>
+              <ul class="tl-list">
+                <li>Создала с нуля дизайн-библиотеку в Pixso</li>
+                <li>Провела UX-исследования</li>
+                <li>Выполнила редизайн МИС, собрала MVP и прототипы на React</li>
+              </ul>
+            </div>
+            <div class="tl-block">
+              <span class="tl-label" data-i18n="tlResults">Результаты</span>
+              <ul class="tl-list">
+                <li>Внедрённая дизайн-система и готовые прототипы переданы команде</li>
+                <li>По итогам консалтинга зафиксирована необходимость долгосрочной трансформации продуктовых процессов</li>
+              </ul>
+            </div>
+          </div>
           <div class="tl-links">
-            <a class="case-link" href="#case">
-              <span data-i18n="linkOpenCase">Открыть кейс</span>
-              <svg class="ic"><use href="#i-up-right"/></svg>
-            </a>
-            <a class="case-link" href="#case">
-              <span class="ph">[ ссылка на кейс 02 ]</span>
-              <svg class="ic"><use href="#i-up-right"/></svg>
-            </a>
+            <a class="case-link" href="#case">Кейс: Дизайн-система с нуля<svg class="ic"><use href="#i-up-right"/></svg></a>
           </div>
         </div>
       </li>
 
+      <!-- Запись 2: Сбербанк -->
       <li class="tl-item rv">
-        <span class="tl-year ph">[ 20XX — 20XX ]</span>
+        <span class="tl-year">[ 2023 — 2025 ]</span>
         <span class="tl-node" aria-hidden="true"></span>
         <div class="tl-body">
           <div class="tl-top">
-            <h3><span class="ph">[ Название компании ]</span></h3>
-            <span class="tl-role ph">[ должность · level ]</span>
+            <h3>[ Сбербанк ]</h3>
+            <span class="tl-role">Senior Product Designer</span>
           </div>
-          <div class="ph-block" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="tl-desc">
+            <div class="tl-block">
+              <span class="tl-label" data-i18n="tlContext">Контекст</span>
+              <p>Департамент «Забота о клиентах» — единый контактный центр с интеграцией AI-помощника.</p>
+            </div>
+            <div class="tl-block">
+              <span class="tl-label" data-i18n="tlInput">Мой вклад</span>
+              <ul class="tl-list">
+                <li>Провела полный цикл UX-исследований: интервью, shadowing, CJM</li>
+                <li>Спроектировала интерфейс SmartCare с AI-ассистентом</li>
+                <li>Реализовала сценарии обработки обращений для трёх площадок: веб-портал первой линии поддержки, рабочий стол сотрудников банка (СБОЛпро), мобильное приложение для клиентов</li>
+              </ul>
+            </div>
+            <div class="tl-block">
+              <span class="tl-label" data-i18n="tlResults">Результаты</span>
+              <ul class="tl-list">
+                <li>Сокращение времени обработки обращений за счёт автоматической AI-классификации</li>
+                <li>Снижение когнитивной нагрузки на операторов в трёх каналах</li>
+              </ul>
+            </div>
+          </div>
           <div class="tl-links">
-            <a class="case-link" href="#case">
-              <span data-i18n="linkOpenCase">Открыть кейс</span>
-              <svg class="ic"><use href="#i-up-right"/></svg>
-            </a>
+            <a class="case-link" href="#case">Кейс: SmartCare<svg class="ic"><use href="#i-up-right"/></svg></a>
           </div>
         </div>
       </li>
 
+      <!-- Запись 3: Банк «ФК Открытие» -->
       <li class="tl-item rv">
-        <span class="tl-year ph">[ 20XX — 20XX ]</span>
+        <span class="tl-year">[ 2016 — 2023 ]</span>
         <span class="tl-node" aria-hidden="true"></span>
         <div class="tl-body">
           <div class="tl-top">
-            <h3><span class="ph">[ Название компании ]</span></h3>
-            <span class="tl-role ph">[ должность · level ]</span>
+            <h3>[ Банк «ФК Открытие» ]</h3>
+            <span class="tl-role">Lead Product Designer · Design Team Lead</span>
           </div>
-          <div class="ph-block" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="tl-desc">
+            <div class="tl-block">
+              <span class="tl-label" data-i18n="tlContext">Контекст</span>
+              <p>Бизнес-портал ДБО для МСБ. 7 лет — дизайн-оунер продукта, 3 года — руководство дизайн-командой.</p>
+            </div>
+            <div class="tl-block">
+              <span class="tl-label" data-i18n="tlInput">Мой вклад</span>
+              <ul class="tl-list">
+                <li>Внедрила единую дизайн-систему на основе Atomic Design</li>
+                <li>Выстроила процессы менторства и роста команды</li>
+              </ul>
+            </div>
+            <div class="tl-block">
+              <span class="tl-label" data-i18n="tlResults">Результаты</span>
+              <ul class="tl-list">
+                <li>Редизайн для <strong>50 000+</strong> пользователей</li>
+                <li>Сокращение времени ключевых операций на <strong>40%</strong></li>
+                <li>Единая дизайн-система для <strong>15+</strong> продуктов</li>
+                <li>Вхождение в <strong>Топ-10</strong> интернет-банков по версии Markswebb</li>
+              </ul>
+            </div>
+          </div>
           <div class="tl-links">
-            <a class="case-link" href="#case">
-              <span data-i18n="linkOpenCase">Открыть кейс</span>
-              <svg class="ic"><use href="#i-up-right"/></svg>
-            </a>
+            <a class="case-link" href="#case">Кейс: Бизнес-портал для МСБ<svg class="ic"><use href="#i-up-right"/></svg></a>
           </div>
         </div>
       </li>
 
+      <!-- Запись 4: Прогрэсдис -->
       <li class="tl-item rv">
-        <span class="tl-year ph">[ 20XX — 20XX ]</span>
+        <span class="tl-year">[ 2015 — 2016 ]</span>
         <span class="tl-node" aria-hidden="true"></span>
         <div class="tl-body">
           <div class="tl-top">
-            <h3><span class="ph">[ Название компании ]</span></h3>
-            <span class="tl-role ph">[ должность · level ]</span>
+            <h3>[ Прогрэсдис ]</h3>
+            <span class="tl-role">UX/UI Designer</span>
           </div>
-          <div class="ph-block" aria-hidden="true"><i></i><i></i></div>
+          <div class="tl-desc">
+            <div class="tl-block">
+              <span class="tl-label" data-i18n="tlContext">Контекст</span>
+              <p>Цифровое агентство, полный цикл проектирования: e-commerce, порталы, мобильные приложения.</p>
+            </div>
+            <div class="tl-block">
+              <span class="tl-label" data-i18n="tlInput">Мой вклад</span>
+              <ul class="tl-list">
+                <li>Вела проекты от исследования до разработки</li>
+                <li>Интервью, CJM, wireframes, прототипы</li>
+              </ul>
+            </div>
+            <div class="tl-block">
+              <span class="tl-label" data-i18n="tlResults">Результаты</span>
+              <ul class="tl-list">
+                <li><strong>20+</strong> запущенных проектов</li>
+                <li>Среди них: ГАС «Законотворчество» (Правительство РФ), ЦОДД Москвы, АРМ для энергорынка (ЕНЭС России)</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </li>
+
     </ol>
   </div>
 </section>
@@ -1047,6 +1140,7 @@ const I18N = {
     secTools:'Инструменты', secEducation:'Образование',
     secContext:'Контекст', secSolution:'Решение',
     secEvidence:'Доказательства', secOutcomes:'Итоги',
+    tlContext:'Контекст', tlInput:'Мой вклад', tlResults:'Результаты',
     backToCases:'Все кейсы', linkOpenCase:'Открыть кейс',
     aTheme:'Переключить тему', aLang:'Язык интерфейса',
     marquee:['Продуктовый дизайн','FinTech','B2B','GovTech','AI Интерфейсы','UX Research','Дизайн-системы','Менторинг','Figma','Enterprise','Service Design']
@@ -1059,6 +1153,7 @@ const I18N = {
     secTools:'Tools', secEducation:'Education',
     secContext:'Context', secSolution:'Solution',
     secEvidence:'Evidence', secOutcomes:'Outcomes',
+    tlContext:'Context', tlInput:'My contribution', tlResults:'Outcomes',
     backToCases:'All cases', linkOpenCase:'View case',
     aTheme:'Toggle theme', aLang:'Interface language',
     marquee:['Product Design','FinTech','B2B','GovTech','AI Interfaces','UX Research','Design Systems','Mentorship','Figma','Enterprise','Service Design']
@@ -1071,6 +1166,7 @@ const I18N = {
     secTools:'工具', secEducation:'教育背景',
     secContext:'背景', secSolution:'解决方案',
     secEvidence:'验证', secOutcomes:'成果',
+    tlContext:'背景', tlInput:'我的贡献', tlResults:'成果',
     backToCases:'所有案例', linkOpenCase:'查看案例',
     aTheme:'切换主题', aLang:'界面语言',
     marquee:['产品设计','FinTech','B2B','GovTech','AI 界面','UX Research','设计系统','导师辅导','Figma','企业服务','服务设计']
