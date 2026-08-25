@@ -4,15 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Мария Мишина — Senior Product Designer</title>
+
+<!-- «Косметика выпуска»: favicon с монограммой, описание, OG-превью ссылок -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FF5A1F'/%3E%3Ctext x='32' y='43' font-family='Verdana,sans-serif' font-size='27' font-weight='700' text-anchor='middle' fill='%231C0E05'%3EMM%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Мария Мишина — Senior Product Designer. FinTech, GovTech, enterprise: дизайн-системы, UX-исследования, B2B/B2G-продукты.">
+<meta property="og:title" content="Мария Мишина — Senior Product Designer">
+<meta property="og:description" content="Портфолио: дизайн-системы, UX-исследования, AI-интерфейсы. Интерфейсы с 2008 года, продуктовый дизайн — с 2016.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://liloolight.github.io/2026/">
+<meta property="og:image" content="https://liloolight.github.io/2026/assets/portrait.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F4F0E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151310" media="(prefers-color-scheme: dark)">
 <!--
-  Портфолио — Мария Мишина · сборка №11
-  Что нового: контакты заполнены — Telegram (@MyxaZlaya) основным каноном
-  (гигантская ссылка), email / телефон / LinkedIn — строками ниже; иконки
-  в hero и футере реальные (4 шт, Telegram первым); из таймлайна убраны
-  ссылки «Кейс: SmartCare» и «Кейс: Бизнес-портал» (страниц кейсов ещё нет,
-  вернём вместе с текстами: #smartcare, #otkrytie).
-  Файлы фото: assets/portrait.jpg, assets/about.jpg, assets/kpi-*.png (9),
-  assets/altera-*.png (5).
+  Портфолио — Мария Мишина · сборка №12
+  Что нового: даты ГлавНИВЦ исправлены (май — авг 2025; «Альтера» — июнь — авг);
+  телефон удалён; стаж — «интерфейсы с 2008 · продукт с 2016»; favicon + OG-мета;
+  в кейсе «Альтера»: блок «Концепция» с мудбордом (assets/altera-moodboard.png —
+  временно picsum), интерактивное превью UI-Kit с тумблером Light/Dark,
+  кнопка «Полный доступ по запросу» (Telegram).
+  Файлы: assets/portrait.jpg, assets/about.jpg, assets/kpi-*.png (9),
+  assets/altera-*.png (5) + altera-moodboard.png (загрузить).
   Обновление: ✏️ Edit на GitHub → Ctrl+A → вставить → Commit.
 -->
 
@@ -24,6 +36,9 @@
 <style>
 /* ============================================================
    МОДУЛЬ CSS-1: токены тем (CSS-переменные)
+   --accent — глобальный (киноварь); --accent-2 — бирюза,
+   локальный цвет продукта «Альтера» (используется только
+   внутри её блоков, глобальную систему не трогает)
    ============================================================ */
 :root{
   --font-display:'Unbounded','Noto Sans SC',sans-serif;
@@ -34,6 +49,7 @@ html[data-theme="light"]{
   --bg:#F4F0E6; --surface:#FBF8F0; --ink:#181510; --muted:#6F6759;
   --line:#DCD5C4; --hatch:#CCC3AD;
   --accent:#E8490F; --accent-ink:#FFF6EC;
+  --accent-2:#177E74; --accent-2-ink:#F2FBF9;
   --header:rgba(244,240,230,.74); --grain:.05;
   color-scheme:light;
 }
@@ -41,6 +57,7 @@ html[data-theme="dark"]{
   --bg:#151310; --surface:#1D1A16; --ink:#F1EBDD; --muted:#A79D89;
   --line:#302C25; --hatch:#3B362D;
   --accent:#FF5A1F; --accent-ink:#1C0E05;
+  --accent-2:#3FC1B0; --accent-2-ink:#0E241F;
   --header:rgba(21,19,16,.72); --grain:.06;
   color-scheme:dark;
 }
@@ -362,12 +379,14 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
 .tracks p{max-width:none}
 /* Этапы стратегии (кейс «Альтера»): вертикальная колонка шагов */
 .steps{margin-top:26px;display:flex;flex-direction:column;gap:22px}
-/* Подзаголовки-ярлыки внутри секций кейса */
+/* Подзаголовки-ярлыки внутри секций кейса.
+   .teal — цвет продукта «Альтера» (бирюза) */
 .case-sublabel{
   display:block;margin:46px 0 12px;
   font-family:var(--font-mono);font-size:10.5px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--muted);
 }
+.case-sublabel.teal{color:var(--accent-2)}
 .case-sublabel + .slide-grid,.case-sublabel + .tl-list{margin-top:0}
 /* Сетка слайдов презентации (16/9, с подписями).
    .wide — элемент на всю ширину ряда (схемы, длинные скриншоты) */
@@ -381,38 +400,48 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
 }
 .slide-grid .wide{grid-column:1/-1}
 .slide-grid .wide img{aspect-ratio:21/10}
-/* Live-прототип: акцентная карточка в «Доказательствах» */
-.proto-cta{
-  display:flex;align-items:center;gap:clamp(18px,3vw,32px);flex-wrap:wrap;
-  margin-top:30px;padding:clamp(24px,3vw,36px) clamp(24px,3vw,38px);
-  border:1.5px solid var(--accent);border-radius:22px;
-  transition:background .3s,transform .3s;
+/* «Альтера»: концепция — мудборд на всю ширину + лид-текст */
+.moodboard{margin-top:0;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:var(--surface)}
+.moodboard img{width:100%;aspect-ratio:21/9;object-fit:cover}
+.moodboard figcaption{
+  font-family:var(--font-mono);font-size:11.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);
+  padding:11px 14px;border-top:1px solid var(--line);
 }
-.proto-cta:hover{background:var(--accent);color:var(--accent-ink);transform:translateY(-2px)}
-.proto-cta-main{display:flex;flex-direction:column;gap:10px}
-.proto-cta-tag{
-  display:inline-flex;align-items:center;gap:9px;
-  font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--accent);
+.concept-text{
+  margin-top:22px;
+  font-size:clamp(1.1rem,2vw,1.45rem);line-height:1.5;font-weight:500;
+  letter-spacing:-.005em;max-width:52ch;
 }
-.proto-cta:hover .proto-cta-tag{color:var(--accent-ink)}
-.proto-cta-dot{width:7px;height:7px;border-radius:50%;background:currentColor;animation:pulse 1.6s ease-in-out infinite}
-@keyframes pulse{50%{opacity:.2}}
-.proto-cta-title{
-  font-family:var(--font-display);font-weight:600;line-height:1.15;letter-spacing:-.01em;
-  font-size:clamp(1.25rem,2.4vw,1.8rem);
+/* «Альтера»: живой UI-Kit — интерактивное превью с тумблером тем */
+.uikit-card{
+  margin-top:0;border:1.5px solid var(--accent-2);border-radius:22px;
+  overflow:hidden;background:var(--surface);
 }
-.proto-cta-note{
-  margin-left:auto;max-width:36ch;
-  font-family:var(--font-mono);font-size:12px;line-height:1.6;color:var(--muted);
+.uikit-view{position:relative;aspect-ratio:16/9;background:var(--bg)}
+.uikit-view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.uikit-view img[hidden]{display:none}
+.uikit-bar{
+  display:flex;align-items:center;gap:14px 22px;flex-wrap:wrap;
+  padding:18px 22px;border-top:1px solid var(--line);
 }
-.proto-cta:hover .proto-cta-note{color:color-mix(in srgb,var(--accent-ink) 85%,transparent)}
-.proto-arrow{
-  width:52px;height:52px;border-radius:50%;flex:none;
-  border:1.5px solid currentColor;display:grid;place-items:center;
+.uikit-cap{
+  font-family:var(--font-mono);font-size:11.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);line-height:1.6;max-width:48ch;
 }
-.proto-arrow .ic{width:20px;height:20px}
-.proto-cta:hover .proto-arrow{transform:translate(3px,-3px)}
+.uikit-bar .case-link{margin-right:auto}
+.uikit-sw{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;background:var(--surface)}
+.uikit-sw button{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;padding:6px 14px;border-radius:999px;
+  color:var(--muted);transition:.25s;
+}
+.uikit-sw button:hover{color:var(--ink)}
+.uikit-sw button.active{background:var(--accent-2);color:var(--accent-2-ink)}
+/* Кнопка «Полный доступ по запросу» — бирюзовый hover (цвет продукта) */
+.request-btn:hover{
+  background:transparent;border-color:var(--accent-2);color:var(--accent-2);
+}
 /* Цифры проекта: 4 ячейки, разделители через gap-трюк */
 .stats-grid{
   display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
@@ -570,7 +599,8 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   .skills-grid,.tools-list{grid-template-columns:1fr}
   .edu-item{grid-template-columns:1fr;gap:2px}
   .tl-block p,.tl-list li{max-width:100%}
-  .proto-cta-note{margin-left:0;max-width:100%}
+  .uikit-bar .case-link{margin-right:0}
+  .uikit-cap{max-width:100%}
   .contact-item{grid-template-columns:38px 1fr auto}
   .ci-label{display:none}
 }
@@ -593,7 +623,6 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
     <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></symbol>
     <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
-    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
   </defs>
 </svg>
 
@@ -650,7 +679,7 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
       <div class="hero-side">
 
         <p class="hero-role mono rv">
-          <span>Senior Product Designer</span><span class="sep">·</span><span>9.5 лет опыта</span>
+          <span>Senior Product Designer</span><span class="sep">·</span><span>продукт с 2016</span>
         </p>
 
         <div class="chips rv">
@@ -668,7 +697,6 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
           <a class="iconbtn" href="https://t.me/MyxaZlaya" target="_blank" rel="noopener" aria-label="Telegram — @MyxaZlaya"><svg class="ic"><use href="#i-send"/></svg></a>
           <a class="iconbtn" href="mailto:mishina.maria.v@yandex.ru" aria-label="Email — mishina.maria.v@yandex.ru"><svg class="ic"><use href="#i-mail"/></svg></a>
           <a class="iconbtn" href="https://ru.linkedin.com/in/liloolight" target="_blank" rel="noopener" aria-label="LinkedIn — Мария Мишина"><svg class="ic"><use href="#i-linkedin"/></svg></a>
-          <a class="iconbtn" href="tel:+79800503360" aria-label="Телефон — +7 (980) 050-33-60"><svg class="ic"><use href="#i-phone"/></svg></a>
         </div>
 
         <div class="hero-cta rv">
@@ -695,14 +723,14 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
     <header class="sec-head rv">
       <span class="sec-idx mono">(01)</span>
       <h2 data-i18n="secExperience">Опыт работы</h2>
-      <span class="sec-note">[ 9.5 лет · 4 компании ]</span>
+      <span class="sec-note">[ интерфейсы с 2008 · продукт с 2016 ]</span>
     </header>
 
     <ol class="timeline">
 
       <!-- Запись 1: ГлавНИВЦ. Оба кейса — из этого места работы -->
       <li class="tl-item rv">
-        <span class="tl-year">[ 2025 ]</span>
+        <span class="tl-year">[ май — авг 2025 ]</span>
         <span class="tl-node" aria-hidden="true"></span>
         <div class="tl-body">
           <div class="tl-top">
@@ -738,8 +766,7 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
       </li>
 
       <!-- Запись 2: Сбербанк.
-           ◆ Ссылка «Кейс: SmartCare» вернётся сюда, когда будет готова
-           страница кейса #smartcare — пока её нет, ссылки не должно быть -->
+           ◆ Ссылка «Кейс: SmartCare» вернётся сюда со страницей #smartcare -->
       <li class="tl-item rv">
         <span class="tl-year">[ 2023 — 2025 ]</span>
         <span class="tl-node" aria-hidden="true"></span>
@@ -947,7 +974,7 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
     <header class="sec-head rv">
       <span class="sec-idx mono">(03)</span>
       <h2 data-i18n="secProfile">Профиль</h2>
-      <span class="sec-note">9+ лет · B2B / B2G</span>
+      <span class="sec-note">[ интерфейсы с 2008 · продукт с 2016 ]</span>
     </header>
 
     <div class="about-grid">
@@ -1183,9 +1210,9 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
     </a>
 
     <header class="case-hero rv">
-      <p class="case-hero-meta">[ healthtech · MVP · 2025 — 2026 ]</p>
+      <p class="case-hero-meta">[ healthtech · MVP · 2025 ]</p>
       <h1>МИС «Альтера» для санаториев</h1>
-      <p class="case-sub">Модуль врача-терапевта · Product Designer / UX-Research / UI Architect · [ 2025 — 2026 ]</p>
+      <p class="case-sub">Модуль врача-терапевта · Product Designer / UX-Research / UI Architect · [ июнь — авг 2025 ]</p>
     </header>
 
     <!-- Обложка: рабочий стол врача -->
@@ -1255,26 +1282,36 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
       <div>
         <p>Разработан и запущен полнофункциональный интерактивный прототип основного сценария врача: дашборд, реестр, карточка пациента, расписание.</p>
 
-        <!-- Живой прототип — главный козырь кейса -->
-        <a class="proto-cta" href="https://liloolight.github.io/mis-altera/" target="_blank" rel="noopener">
-          <span class="proto-cta-main">
-            <span class="proto-cta-tag"><span class="proto-cta-dot" aria-hidden="true"></span>live · интерактивный прототип</span>
-            <span class="proto-cta-title">Открыть прототип МИС «Альтера»</span>
-          </span>
-          <span class="proto-cta-note">Сначала откроется форма логина — после клика вы попадёте в кабинет врача.</span>
-          <span class="proto-arrow" aria-hidden="true"><svg class="ic"><use href="#i-up-right"/></svg></span>
-        </a>
+        <!-- Концепция: мудборд (цвет продукта — бирюза) -->
+        <span class="case-sublabel teal">Концепция</span>
+        <figure class="moodboard">
+          <!-- ◆ ЗАМЕНИТЬ: мудборд «Альтеры» — файл assets/altera-moodboard.png -->
+          <img src="https://picsum.photos/seed/altera-mood/1800/770.jpg" alt="Placeholder — мудборд МИС «Альтера»">
+          <figcaption>Мудборд · направление «медицинский минимализм»</figcaption>
+        </figure>
+        <p class="concept-text">От природных материалов к цифровому интерфейсу: исследование тактильности, прозрачности и спокойствия для медицинского продукта.</p>
+
+        <!-- Живой UI-Kit: превью с интерактивным переключателем тем.
+             Скриншоты реестра (светлая/тёмная) уже в assets —
+             тумблер меняет их местами, полный кит — в прототипе -->
+        <span class="case-sublabel teal">Живой UI-Kit</span>
+        <div class="uikit-card" data-uikit>
+          <div class="uikit-view">
+            <img src="assets/altera-ui-registry.png" data-uikit-theme="light" alt="МИС «Альтера» — реестр пациентов, светлая тема">
+            <img src="assets/altera-ui-registry-dark.png" data-uikit-theme="dark" hidden alt="МИС «Альтера» — реестр пациентов, тёмная тема">
+          </div>
+          <div class="uikit-bar">
+            <span class="uikit-cap">Живой UI-Kit с переключателем тем доступен на прототипе · сначала откроется форма логина</span>
+            <a class="case-link" href="https://liloolight.github.io/mis-altera/" target="_blank" rel="noopener">Открыть прототип<svg class="ic"><use href="#i-up-right"/></svg></a>
+            <div class="uikit-sw" role="group" aria-label="Тема превью">
+              <button type="button" data-uikit-theme="light" class="active">Light</button>
+              <button type="button" data-uikit-theme="dark">Dark</button>
+            </div>
+          </div>
+        </div>
 
         <span class="case-sublabel">Экраны прототипа</span>
         <div class="slide-grid">
-          <figure>
-            <img src="assets/altera-ui-registry.png" alt="МИС «Альтера» — реестр пациентов, светлая тема">
-            <figcaption>Реестр пациентов · светлая тема</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/altera-ui-registry-dark.png" alt="МИС «Альтера» — реестр пациентов, тёмная тема">
-            <figcaption>Реестр пациентов · тёмная тема</figcaption>
-          </figure>
           <figure class="wide">
             <img src="assets/altera-ui-patient.png" alt="МИС «Альтера» — карточка пациента с историей посещений">
             <figcaption>Карточка пациента · история посещений и подробности</figcaption>
@@ -1318,6 +1355,10 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
         <svg class="ic"><use href="#i-arrow-l"/></svg>
         <span data-i18n="backToCases">Все кейсы</span>
       </a>
+      <a class="btn btn-ghost request-btn" href="https://t.me/MyxaZlaya" target="_blank" rel="noopener">
+        <svg class="ic"><use href="#i-send"/></svg>
+        <span>Полный доступ по запросу</span>
+      </a>
       <a class="case-link" href="#case">Предыдущий кейс: Редизайн CRM «КПИ»<svg class="ic"><use href="#i-up-right"/></svg></a>
     </div>
   </div>
@@ -1347,12 +1388,6 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
         <span class="ci-value">mishina.maria.v@yandex.ru</span>
         <svg class="ic ci-arrow" aria-hidden="true"><use href="#i-up-right"/></svg>
       </a>
-      <a class="contact-item" href="tel:+79800503360">
-        <svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>
-        <span class="ci-label mono">телефон</span>
-        <span class="ci-value">+7 (980) 050-33-60</span>
-        <svg class="ic ci-arrow" aria-hidden="true"><use href="#i-up-right"/></svg>
-      </a>
       <a class="contact-item" href="https://ru.linkedin.com/in/liloolight" target="_blank" rel="noopener">
         <svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg>
         <span class="ci-label mono">linkedin</span>
@@ -1373,7 +1408,6 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
       <a class="iconbtn" href="https://t.me/MyxaZlaya" target="_blank" rel="noopener" aria-label="Telegram — @MyxaZlaya"><svg class="ic"><use href="#i-send"/></svg></a>
       <a class="iconbtn" href="mailto:mishina.maria.v@yandex.ru" aria-label="Email — mishina.maria.v@yandex.ru"><svg class="ic"><use href="#i-mail"/></svg></a>
       <a class="iconbtn" href="https://ru.linkedin.com/in/liloolight" target="_blank" rel="noopener" aria-label="LinkedIn — Мария Мишина"><svg class="ic"><use href="#i-linkedin"/></svg></a>
-      <a class="iconbtn" href="tel:+79800503360" aria-label="Телефон — +7 (980) 050-33-60"><svg class="ic"><use href="#i-phone"/></svg></a>
     </div>
   </div>
 </footer>
@@ -1406,8 +1440,6 @@ setTheme(
 
 /* ============================================================
    МОДУЛЬ JS-2: интернационализация (RU / EN / CN)
-   UI-тексты — по ключам data-i18n, слова бегущей строки —
-   массивом marquee в словаре каждого языка.
    ============================================================ */
 const I18N = {
   ru: {
@@ -1451,8 +1483,7 @@ const I18N = {
   }
 };
 
-/* Бегущая строка: слова из словаря текущего языка.
-   Набор дублируется для бесшовной петли. */
+/* Бегущая строка: слова из словаря текущего языка. */
 function renderMarquee(l){
   const track = document.querySelector('.marquee-track');
   if(!track || !I18N[l] || !Array.isArray(I18N[l].marquee)) return;
@@ -1474,7 +1505,7 @@ function setLang(l){
   root.setAttribute('lang', l === 'cn' ? 'zh-CN' : l);
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const v = I18N[l][el.dataset.i18n];
-    if(typeof v === 'string') el.textContent = v; // marquee — массив, не текст
+    if(typeof v === 'string') el.textContent = v;
   });
   document.querySelectorAll('[data-i18n-aria]').forEach(el => {
     const v = I18N[l][el.dataset.i18nAria];
@@ -1493,8 +1524,8 @@ setLang(store.get('lang') || 'ru');
 
 /* ============================================================
    МОДУЛЬ JS-3: мини-роутер (7 «страниц» без перезагрузки)
-   Новые кейсы (SmartCare, Открытие): добавьте секцию с
-   data-page="smartcare" и имя в PAGES ниже.
+   Новые кейсы (SmartCare, Открытие, брендбук «Альтеры»):
+   добавьте секцию с data-page="имя" и имя в PAGES ниже.
    ============================================================ */
 const PAGES = ['hero','about','experience','cases','case','altera','contacts'];
 function showPage(name){
@@ -1524,7 +1555,24 @@ document.querySelectorAll('[data-goto]').forEach(card => {
 });
 
 /* ============================================================
-   МОДУЛЬ JS-4: плавное появление блоков при скролле
+   МОДУЛЬ JS-4: живой UI-Kit (кейс «Альтера») — тумблер тем
+   в превью. Оба скриншота уже в DOM: переключение мгновенное,
+   без дозагрузки. Полный кит — в прототипе по ссылке.
+   ============================================================ */
+document.querySelectorAll('[data-uikit]').forEach(group => {
+  const btns = group.querySelectorAll('[data-uikit-theme]');
+  const imgs = group.querySelectorAll('.uikit-view img');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const t = btn.dataset.uikitTheme;
+      btns.forEach(b => b.classList.toggle('active', b === btn));
+      imgs.forEach(img => { img.hidden = img.dataset.uikitTheme !== t; });
+    });
+  });
+});
+
+/* ============================================================
+   МОДУЛЬ JS-5: плавное появление блоков при скролле
    ============================================================ */
 if('IntersectionObserver' in window){
   const io = new IntersectionObserver(entries => {
