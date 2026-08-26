@@ -348,6 +348,44 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
 .lb-close{top:24px;right:24px}
 .lb-prev{left:24px;top:50%;transform:translateY(-50%)}
 .lb-next{right:24px;top:50%;transform:translateY(-50%)}
+/* Зелёный акцент Сбера (локально для кейсов Сбера) */
+:root{ --accent-3:#21A038; --accent-3-ink:#F5FBF0; }
+html[data-theme="dark"]{ --accent-3:#4CC971; --accent-3-ink:#0E2B16; }
+
+#page-sber,#page-smartcare{ position:relative; }
+#page-sber .cs-idx,#page-sber .case-hero-meta,#page-smartcare .cs-idx,
+#page-smartcare .case-hero-meta,#page-sber .sm-num,#page-smartcare .sm-num,
+#page-sber .final-metric .num,#page-smartcare .final-metric .num{ color:var(--accent-3); }
+#page-sber .tl-list li::before,#page-smartcare .tl-list li::before{ background:var(--accent-3); }
+#page-sber .btn-accent,#page-smartcare .btn-accent{ background:var(--accent-3);color:var(--accent-3-ink);border-color:var(--accent-3); }
+
+/* Таблица «Было vs Стало» */
+.was-now{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--surface);position:relative}
+.was-now::before{content:"";position:absolute;inset:0;opacity:.05;pointer-events:none;background:url("assets/sber-back-1.png") center/cover no-repeat}
+.was-col,.now-col{position:relative;z-index:1;padding:28px 26px}
+.was-col{border-right:1px solid var(--line)}
+.was-label,.now-label{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px}
+.was-label{color:var(--muted)}
+.now-label{color:var(--accent-3)}
+.was-col p,.now-col p{max-width:none;font-size:.97em;line-height:1.7}
+.was-col p+p,.now-col p+p{margin-top:10px}
+.now-col strong{color:var(--accent-3);font-weight:600}
+
+/* Сетка метрик */
+.sber-metrics{margin-top:30px;border:1px solid var(--line);border-radius:22px;overflow:hidden;display:grid;grid-template-columns:repeat(4,1fr);position:relative;background:var(--surface)}
+.sber-metrics::before{content:"";position:absolute;inset:0;opacity:.04;pointer-events:none;background:url("assets/sber-back-3.png") center/cover no-repeat}
+#page-smartcare .sber-metrics::before{background:url("assets/sber-sc-back-5.png") center/cover no-repeat}
+.sber-metric{position:relative;z-index:1;padding:32px 24px;text-align:center;border-left:1px solid var(--line)}
+.sber-metric:first-child{border-left:none}
+.sm-num{font-family:var(--font-display);font-weight:600;font-size:clamp(2rem,4vw,3.4rem);line-height:1;color:var(--accent-3);display:block}
+.sm-lbl{display:block;margin-top:14px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);line-height:1.55}
+
+/* NDA-блок */
+.nda-block{margin-top:32px;padding:24px 28px;border:1px dashed color-mix(in srgb,var(--muted) 50%,transparent);border-radius:18px;background:color-mix(in srgb,var(--surface) 50%,transparent);display:flex;align-items:flex-start;gap:16px}
+.nda-icon{width:40px;height:40px;border-radius:50%;flex:none;border:1.5px solid var(--muted);display:grid;place-items:center;color:var(--muted)}
+.nda-icon .ic{width:18px;height:18px}
+.nda-text{font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;color:var(--muted);line-height:1.7;max-width:60ch}
+.nda-text strong{color:var(--ink);font-weight:600}
 
 @media (max-width:1000px){
   .s7,.s5{grid-column:span 12}
@@ -719,17 +757,17 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
         </div>
         <span class="cc-arrow" aria-hidden="true"><svg class="ic"><use href="#i-up-right"/></svg></span>
       </article>
-      <article class="case-card s5 rv" data-goto="case" tabindex="0" role="link" aria-label="Открыть детальный кейс (placeholder)">
+            <article class="case-card s5 rv" data-goto="sber" tabindex="0" role="link" aria-label="Открыть кейс: СБОЛ.про Обращения">
         <div class="cc-media">
-          <img src="https://picsum.photos/seed/case-03/900/560.jpg" alt="Placeholder — project cover 03">
-          <span class="cc-tag"><span class="ph">[ тег ]</span></span>
+          <img src="assets/sber-hero.png" alt="СБОЛ.про — AI-Ассистент принятия решений">
+          <span class="cc-tag">FinTech</span>
         </div>
         <div class="cc-body">
           <span class="cc-idx">case · 03</span>
-          <h3><span class="ph">[ Название кейса ]</span></h3>
+          <h3>СБОЛ.про · Обращения</h3>
           <div class="cc-metric">
-            <span class="cc-num ph">×0.0</span>
-            <span class="cc-lbl ph">[ ключевая метрика ]</span>
+            <span class="cc-num">−25%</span>
+            <span class="cc-lbl">эскалаций внутренним специалистам · AI-ассистент</span>
           </div>
         </div>
         <span class="cc-arrow" aria-hidden="true"><svg class="ic"><use href="#i-up-right"/></svg></span>
@@ -1099,7 +1137,162 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
     <p class="case-footnote">Полные технические спецификации и стратегическое обоснование для разработки (Blazor, UI-паттерны) доступны <a href="https://t.me/MyxaZlaya" target="_blank" rel="noopener">по запросу</a>.</p>
   </div>
 </section>
+<!-- ======================= КЕЙС 03: СБОЛ.про Обращения (Сбер) ======================= -->
+<section class="page" id="page-sber" data-page="sber" hidden>
+  <div class="wrap">
+    <a class="back-link rv" href="#cases">
+      <svg class="ic"><use href="#i-arrow-l"/></svg>
+      <span data-i18n="backToCases">Все кейсы</span>
+    </a>
+    <header class="case-hero rv">
+      <p class="case-hero-meta">[ 2025 · Product Designer · NDA ]</p>
+      <h1>AI-Ассистент принятия решений</h1>
+      <p class="case-sub">СБОЛ.про · Обращения · [ 2025 ]</p>
+    </header>
+    <div class="case-metrics rv">
+      <div class="cm"><span class="num">−25%</span><span class="lbl">обращений, передаваемых внутренним специалистам</span></div>
+      <div class="cm"><span class="num">−13%</span><span class="lbl">ошибок классификации</span></div>
+      <div class="cm"><span class="num">4 мес.</span><span class="lbl">адаптация новых сотрудников (вместо 6)</span></div>
+    </div>
+    <section class="cs-block rv">
+      <div><span class="cs-idx">(01)</span><h2 data-i18n="secContext">Контекст</h2></div>
+      <div>
+        <p>Сотрудники офисов банка переходили на новую справочную систему, которая заменила несколько информационно-справочных систем. Старая система строилась на жёстком последовательном <strong>5-уровневом классификаторе</strong>. Это приводило к высокой нагрузке на внутренних специалистов, частым ошибкам классификации и увеличению времени решения проблем клиентов.</p>
+        <p>Критической задачей было обеспечить <strong>плавный переход без падения качества обслуживания</strong>.</p>
+      </div>
+    </section>
+    <section class="cs-block rv">
+      <div><span class="cs-idx">(02)</span><h2>Моя роль</h2></div>
+      <div>
+        <p><strong>Product Designer.</strong> Проведение UX-исследований (гемба, глубинные интервью, UX-тестирование), анализ эффективности работы, проектирование AI-помощника, координация с командой разработки и data science.</p>
+      </div>
+    </section>
+    <section class="cs-block rv">
+      <div><span class="cs-idx">(03)</span><h2 data-i18n="secSolution">Решение</h2></div>
+      <div>
+        <p>Спроектировала и внедрила два последовательных сценария с интеграцией AI-решений:</p>
+        <div class="was-now">
+          <div class="was-col">
+            <span class="was-label">Было</span>
+            <p>Жёсткий последовательный <strong>5-уровневый классификатор</strong></p>
+            <p>Высокая нагрузка на внутренних специалистов</p>
+            <p>Частые ошибки классификации</p>
+            <p>Увеличение времени решения проблем клиентов</p>
+          </div>
+          <div class="now-col">
+            <span class="now-label">Стало</span>
+            <p><strong>1. Сквозной умный поиск</strong> — заменила последовательный классификатор на смысловой поиск (быстрый выигрыш)</p>
+            <p><strong>2. Диалог с AI-ассистентом</strong> — после UX-тестирования заменила шаг с классификатором на диалог: ассистент либо сразу предлагал способы решения, либо самостоятельно присваивал верную классификацию и регистрировал обращение</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="cs-block rv">
+      <div><span class="cs-idx">(04)</span><h2 data-i18n="secOutcomes">Итоги</h2></div>
+      <div>
+        <p>Значительное сокращение трудозатрат и времени обработки обращений. Конкретные метрики:</p>
+        <div class="sber-metrics">
+          <div class="sber-metric"><span class="sm-num">−25%</span><span class="sm-lbl">обращений, передаваемых внутренним специалистам</span></div>
+          <div class="sber-metric"><span class="sm-num">−13%</span><span class="sm-lbl">ошибок при классификации обращений</span></div>
+          <div class="sber-metric"><span class="sm-num">4 мес.</span><span class="sm-lbl">адаптация новых сотрудников (вместо 6 ранее)</span></div>
+          <div class="sber-metric"><span class="sm-num">↓</span><span class="sm-lbl">значительное сокращение трудозатрат и времени обработки</span></div>
+        </div>
+        <div class="nda-block">
+          <span class="nda-icon" aria-hidden="true"><svg class="ic"><use href="#i-x"/></svg></span>
+          <span class="nda-text"><strong>NDA.</strong> Продукт находится под соглашением о неразглашении. Визуальные материалы не подлежат экспорту из внутреннего контура банка — поэтому вместо скриншотов экранов здесь представлены ключевые метрики, типографика и табличные данные. Полное описание процесса и архитектуры доступно по запросу.</span>
+        </div>
+      </div>
+    </section>
+    <div class="case-nav rv">
+      <a class="btn btn-ghost" href="#cases">
+        <svg class="ic"><use href="#i-arrow-l"/></svg>
+        <span data-i18n="backToCases">Все кейсы</span>
+      </a>
+      <a class="case-link" href="#smartcare">Следующий кейс: SmartCare<svg class="ic"><use href="#i-up-right"/></svg></a>
+    </div>
+  </div>
+</section>
 
+<!-- ======================= КЕЙС 04: SmartCare (Сбер) ======================= -->
+<section class="page" id="page-smartcare" data-page="smartcare" hidden>
+  <div class="wrap">
+    <a class="back-link rv" href="#cases">
+      <svg class="ic"><use href="#i-arrow-l"/></svg>
+      <span data-i18n="backToCases">Все кейсы</span>
+    </a>
+    <header class="case-hero rv">
+      <p class="case-hero-meta">[ 2023 — 2025 · Product Designer · NDA ]</p>
+      <h1>SmartCare. Эволюция инструмента поддержки</h1>
+      <p class="case-sub">Линия поддержки Сбера · [ 2023 — 2025 ]</p>
+    </header>
+    <div class="case-metrics rv">
+      <div class="cm"><span class="num">+7%</span><span class="lbl">удовлетворённость клиентов (CSAT)</span></div>
+      <div class="cm"><span class="num">−5 мин</span><span class="lbl">среднее время звонка</span></div>
+      <div class="cm"><span class="num">−30%</span><span class="lbl">период онбординга</span></div>
+    </div>
+    <section class="cs-block rv">
+      <div><span class="cs-idx">(01)</span><h2 data-i18n="secContext">Контекст</h2></div>
+      <div>
+        <p>SmartCare — внутренний инструмент для сотрудников линии поддержки Сбера. Проблема была не в одном функционале, а в <strong>отсутствии системности</strong>: разные продуктовые команды выкатывали свои паттерны и сценарии, создавая путаницу. Это приводило к высокой когнитивной нагрузке на операторов, увеличению времени обработки звонков и долгому обучению новичков.</p>
+        <p>Задача — без резких переворотов, а <strong>плавно и систематически</strong> повышать эффективность работы поддержки в течение двух лет.</p>
+      </div>
+    </section>
+    <section class="cs-block rv">
+      <div><span class="cs-idx">(02)</span><h2>Моя роль</h2></div>
+      <div>
+        <p><strong>Product Designer.</strong> Моя стратегия — не «разовый редизайн», а постоянная итеративная работа над эволюцией продукта. Я проводила множество UX-исследований, которые, помимо проверки гипотез нового функционала, выявляли глубокие конфликты в паттернах работы между командами. Ключевым решением стала <strong>стандартизация</strong>: я привела все сценарии и паттерны к единому знаменателю для всех команд портала.</p>
+      </div>
+    </section>
+    <section class="cs-block rv">
+      <div><span class="cs-idx">(03)</span><h2 data-i18n="secSolution">Решение</h2></div>
+      <div>
+        <p><strong>Стандартизация паттернов.</strong> На основе исследований выявила и устранила нелогичные сценарии, конфликтующие между собой. Это стало фундаментом для единого UX-стандарта, который приняли все продуктовые команды.</p>
+        <span class="case-sublabel">Ключевой кейс: Сценарий быстрого возврата средств</span>
+        <div class="steps">
+          <div class="tl-block">
+            <span class="tl-label">Первый прототип</span>
+            <p>Построила на гипотетических «стек-холдер» паттернах.</p>
+          </div>
+          <div class="tl-block">
+            <span class="tl-label">Тестирование</span>
+            <p>Провела двухнедельное UX-тестирование на реальных сотрудниках (разного возраста и опыта).</p>
+          </div>
+          <div class="tl-block">
+            <span class="tl-label">Итерации</span>
+            <p>Тесты показали, что сценарий слишком сложен. Кардинально упростила его и привлекла UX-редакторов, которые заменили технические формулировки на привычные сотрудникам термины.</p>
+          </div>
+          <div class="tl-block">
+            <span class="tl-label">Результат</span>
+            <p>Новая функция была принята сотрудниками <strong>без сопротивления</strong> и не привела к падению скорости обслуживания.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="cs-block rv">
+      <div><span class="cs-idx">(04)</span><h2 data-i18n="secOutcomes">Итоги</h2></div>
+      <div>
+        <p>За два года итеративной работы — четыре ключевых результата:</p>
+        <div class="sber-metrics">
+          <div class="sber-metric"><span class="sm-num">−5 мин</span><span class="sm-lbl">среднее время звонка сократилось за два года</span></div>
+          <div class="sber-metric"><span class="sm-num">−30%</span><span class="sm-lbl">период онбординга новых сотрудников</span></div>
+          <div class="sber-metric"><span class="sm-num">+7%</span><span class="sm-lbl">удовлетворённость сервисом (CSAT) — вместо ожидаемого падения</span></div>
+          <div class="sber-metric"><span class="sm-num">1–3 ч</span><span class="sm-lbl">время возврата средств (вместо нескольких дней)</span></div>
+        </div>
+        <div class="nda-block">
+          <span class="nda-icon" aria-hidden="true"><svg class="ic"><use href="#i-x"/></svg></span>
+          <span class="nda-text"><strong>NDA.</strong> Продукт находится под соглашением о неразглашении. Визуальные материалы не подлежат экспорту из внутреннего контура банка — поэтому вместо скриншотов экранов здесь представлены ключевые метрики, типографика и табличные данные. Полное описание процесса и архитектуры доступно по запросу.</span>
+        </div>
+      </div>
+    </section>
+    <div class="case-nav rv">
+      <a class="btn btn-ghost" href="#cases">
+        <svg class="ic"><use href="#i-arrow-l"/></svg>
+        <span data-i18n="backToCases">Все кейсы</span>
+      </a>
+      <a class="case-link" href="#sber">Предыдущий кейс: СБОЛ.про<svg class="ic"><use href="#i-up-right"/></svg></a>
+    </div>
+  </div>
+</section>
 <!-- ======================= КОНТАКТЫ ======================= -->
 <section class="page" id="page-contacts" data-page="contacts" hidden>
   <div class="wrap">
@@ -1254,14 +1447,14 @@ document.querySelectorAll('[data-setlang]').forEach(b =>
 setLang(store.get('lang') || 'ru');
 
 /* ---------- JS-3: роутер ---------- */
-const PAGES = ['hero','about','experience','cases','case','altera','contacts'];
-function showPage(name){
+const PAGES = ['hero','about','experience','cases','case','altera','sber','smartcare','contacts'];
+  function showPage(name){
   PAGES.forEach(p => {
     document.querySelector('[data-page="'+p+'"]').hidden = (p !== name);
   });
   document.querySelectorAll('.nav-link').forEach(a => {
     const t = a.getAttribute('href').slice(1);
-    a.classList.toggle('active', t === name || (t === 'cases' && (name === 'case' || name === 'altera')));
+    a.classList.toggle('active', t === name || (t === 'cases' && (name === 'case' || name === 'altera' || name === 'sber' || name === 'smartcare')));
   });
   window.scrollTo(0, 0);
 }
