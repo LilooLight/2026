@@ -375,6 +375,12 @@ html[data-theme="dark"]{--accent-4:#4CC3F0;--accent-4-ink:#06202B}
 .ba-arrow{align-self:center;width:44px;height:44px;border-radius:50%;background:var(--accent-4);color:var(--accent-4-ink);display:grid;place-items:center;flex:none}
 .ba-arrow .ic{width:20px;height:20px}
 
+/* Вертикальный вариант «Было → Стало» (кейс Бизнес-портал) */
+.ba-v{display:flex;flex-direction:column;gap:14px;margin-top:0}
+.ba-v .ba-col{max-width:560px}
+.ba-v .ba-arrow-down{width:44px;height:44px;border-radius:50%;background:var(--accent-4);color:var(--accent-4-ink);display:grid;place-items:center;flex:none;transform:rotate(90deg);margin:2px 0 2px 40px}
+.ba-v .ba-arrow-down .ic{width:20px;height:20px}
+
 @media (max-width:860px){
   .ba-grid{grid-template-columns:1fr}
   .ba-arrow{transform:rotate(90deg);justify-self:center}
@@ -389,7 +395,7 @@ html[data-theme="dark"]{--accent-4:#4CC3F0;--accent-4-ink:#06202B}
 .mw-track::-webkit-scrollbar-thumb{background:var(--accent-4);border-radius:3px}
 .mw-item{flex:0 0 clamp(240px,30vw,380px);scroll-snap-align:start;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--surface);display:flex;flex-direction:column;cursor:grab}
 .mw-item:active{cursor:grabbing}
-.mw-item img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;pointer-events:none}
+.mw-item img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;cursor:zoom-in}
 .mw-item figcaption{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-4);padding:10px 13px;border-top:1px solid var(--line)}
 .mw-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:2px}
 .mw-hint{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
