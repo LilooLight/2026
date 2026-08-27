@@ -328,3 +328,55 @@ html[data-theme="light"] .theme-btn .ic-sun{display:none}
   .sber-metrics{grid-template-columns:1fr}.sber-metric{border-left:none;border-top:1px solid var(--line)}.sber-metric:first-child{border-top:none}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+/* ============================================================
+   КЕЙС «БИЗНЕС-ПОРТАЛ» (Открытие): голубой акцент бренда #00A4E5.
+   Живёт только внутри кейса (цифры, подписи, метки);
+   кнопки и навигация остаются оранжевыми (общими для сайта)
+   ============================================================ */
+:root{--accent-4:#00A4E5;--accent-4-ink:#F2FAFF}
+html[data-theme="dark"]{--accent-4:#4CC3F0;--accent-4-ink:#06202B}
+
+.case-sublabel.blue{color:var(--accent-4)}
+.cc-tag.tag-blue{color:var(--accent-4);border-color:color-mix(in srgb,var(--accent-4) 45%,var(--line))}
+
+#page-bp .cs-idx,#page-bp .case-hero-meta{color:var(--accent-4)}
+#page-bp .tl-list li::before{background:var(--accent-4)}
+#page-bp .sm-num{color:var(--accent-4)}
+#page-bp .sber-metrics::before{content:none}
+#page-bp .slide-grid figcaption{color:var(--accent-4)}
+#page-bp .nda-text a{color:var(--accent-4);border-bottom:1px dashed var(--accent-4)}
+
+/* Ключевая метрика в hero */
+.bp-keymetric{margin-top:clamp(30px,4vw,44px);padding:clamp(22px,3vw,32px) clamp(22px,3vw,36px);border:1.5px solid var(--accent-4);border-radius:22px;display:flex;align-items:baseline;gap:14px 24px;flex-wrap:wrap}
+.bp-keymetric .km-num{font-family:var(--font-display);font-weight:600;font-size:clamp(2rem,4.4vw,3.4rem);line-height:1;color:var(--accent-4)}
+.bp-keymetric .km-lbl{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);max-width:44ch;line-height:1.6}
+.bp-keymetric .km-note{margin-left:auto;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* Вертикальный таймлайн этапов */
+.bp-stages{margin-top:30px;position:relative;padding-left:30px}
+.bp-stages::before{content:"";position:absolute;left:5px;top:14px;bottom:14px;width:1.5px;background:var(--line)}
+.bp-stage{position:relative;padding-bottom:clamp(38px,5vw,54px)}
+.bp-stage:last-child{padding-bottom:0}
+.bp-stage::before{content:"";position:absolute;left:-30px;top:6px;width:11px;height:11px;border-radius:50%;border:2px solid var(--accent-4);background:var(--bg)}
+.bp-stage-head{display:flex;align-items:baseline;gap:12px 16px;flex-wrap:wrap;margin-bottom:12px}
+.bp-stage-idx{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-4)}
+.bp-stage-years{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;color:var(--muted)}
+.bp-stage-head h3{font-family:var(--font-display);font-weight:600;font-size:clamp(1.05rem,1.8vw,1.3rem);letter-spacing:-.01em}
+.bp-stage > p{max-width:62ch}
+.bp-stage .case-sublabel{margin:28px 0 0}
+.bp-stage .slide-grid{margin-top:20px}
+
+/* «До / После» (Markswebb) */
+.ba-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch;margin-top:0}
+.ba-col{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--surface);display:flex;flex-direction:column}
+.ba-label{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:12px 16px;border-bottom:1px solid var(--line)}
+.ba-label-now{color:var(--accent-4)}
+.ba-col img{width:100%;flex:1;min-height:180px;object-fit:cover;object-position:top}
+.ba-arrow{align-self:center;width:44px;height:44px;border-radius:50%;background:var(--accent-4);color:var(--accent-4-ink);display:grid;place-items:center;flex:none}
+.ba-arrow .ic{width:20px;height:20px}
+
+@media (max-width:860px){
+  .ba-grid{grid-template-columns:1fr}
+  .ba-arrow{transform:rotate(90deg);justify-self:center}
+  .bp-keymetric .km-note{margin-left:0}
+}
