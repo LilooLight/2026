@@ -100,7 +100,8 @@ document.querySelectorAll('[data-setlang]').forEach(b =>
 setLang(store.get('lang') || 'ru');
 
 /* ---------- РОУТЕР ---------- */
-const PAGES = ['hero','about','experience','cases','case','altera','sber','smartcare','bp','contacts'];function showPage(name){
+const PAGES = ['hero','about','experience','cases','case','altera','sber','smartcare','bp','contacts'];
+function showPage(name){
   PAGES.forEach(p => {
     document.querySelector('[data-page="'+p+'"]').hidden = (p !== name);
   });
@@ -220,7 +221,7 @@ lightbox.addEventListener('touchend', e => {
   touchX = null;
 }, {passive:true});
 
-   /* ---------- КАРУСЕЛЬ MARKSWEBB (кейс Бизнес-портал) ---------- */
+/* ---------- КАРУСЕЛЬ MARKSWEBB (кейс Бизнес-портал) ---------- */
 document.querySelectorAll('[data-mw]').forEach(track => {
   const step = () => (track.querySelector('.mw-item') || {}).offsetWidth + 16;
   const prev = track.parentElement.querySelector('[data-mw-prev]');
@@ -228,7 +229,7 @@ document.querySelectorAll('[data-mw]').forEach(track => {
   if(prev) prev.addEventListener('click', () => track.scrollBy({left:-step()*2, behavior:'smooth'}));
   if(next) next.addEventListener('click', () => track.scrollBy({left:step()*2, behavior:'smooth'}));
 });
-   
+
 /* ---------- ПОЯВЛЕНИЕ ПРИ СКРОЛЛЕ ---------- */
 if('IntersectionObserver' in window){
   const io = new IntersectionObserver(entries => {
