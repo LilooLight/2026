@@ -100,14 +100,13 @@ document.querySelectorAll('[data-setlang]').forEach(b =>
 setLang(store.get('lang') || 'ru');
 
 /* ---------- РОУТЕР ---------- */
-const PAGES = ['hero','about','experience','cases','case','altera','sber','smartcare','contacts'];
-function showPage(name){
+const PAGES = ['hero','about','experience','cases','case','altera','sber','smartcare','bp','contacts'];function showPage(name){
   PAGES.forEach(p => {
     document.querySelector('[data-page="'+p+'"]').hidden = (p !== name);
   });
   document.querySelectorAll('.nav-link').forEach(a => {
     const t = a.getAttribute('href').slice(1);
-    a.classList.toggle('active', t === name || (t === 'cases' && (name === 'case' || name === 'altera' || name === 'sber' || name === 'smartcare')));
+    a.classList.toggle('active', t === name || (t === 'cases' && (name === 'case' || name === 'altera' || name === 'sber' || name === 'smartcare' || name === 'bp')));
   });
   window.scrollTo(0, 0);
 }
