@@ -220,6 +220,15 @@ lightbox.addEventListener('touchend', e => {
   touchX = null;
 }, {passive:true});
 
+   /* ---------- КАРУСЕЛЬ MARKSWEBB (кейс Бизнес-портал) ---------- */
+document.querySelectorAll('[data-mw]').forEach(track => {
+  const step = () => (track.querySelector('.mw-item') || {}).offsetWidth + 16;
+  const prev = track.parentElement.querySelector('[data-mw-prev]');
+  const next = track.parentElement.querySelector('[data-mw-next]');
+  if(prev) prev.addEventListener('click', () => track.scrollBy({left:-step()*2, behavior:'smooth'}));
+  if(next) next.addEventListener('click', () => track.scrollBy({left:step()*2, behavior:'smooth'}));
+});
+   
 /* ---------- ПОЯВЛЕНИЕ ПРИ СКРОЛЛЕ ---------- */
 if('IntersectionObserver' in window){
   const io = new IntersectionObserver(entries => {
