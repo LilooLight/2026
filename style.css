@@ -380,3 +380,20 @@ html[data-theme="dark"]{--accent-4:#4CC3F0;--accent-4-ink:#06202B}
   .ba-arrow{transform:rotate(90deg);justify-self:center}
   .bp-keymetric .km-note{margin-left:0}
 }
+/* ============================================================
+   Карусель Markswebb (кейс «Бизнес-портал»)
+   ============================================================ */
+.mw-carousel{position:relative;margin-top:0}
+.mw-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 14px;scrollbar-width:thin;scrollbar-color:var(--accent-4) transparent}
+.mw-track::-webkit-scrollbar{height:6px}
+.mw-track::-webkit-scrollbar-thumb{background:var(--accent-4);border-radius:3px}
+.mw-item{flex:0 0 clamp(240px,30vw,380px);scroll-snap-align:start;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--surface);display:flex;flex-direction:column;cursor:grab}
+.mw-item:active{cursor:grabbing}
+.mw-item img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;pointer-events:none}
+.mw-item figcaption{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-4);padding:10px 13px;border-top:1px solid var(--line)}
+.mw-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:2px}
+.mw-hint{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.mw-btns{display:flex;gap:10px}
+.mw-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;color:var(--muted);transition:.25s;background:var(--surface)}
+.mw-btn:hover{border-color:var(--accent-4);color:var(--accent-4)}
+.mw-btn .ic{width:17px;height:17px}
