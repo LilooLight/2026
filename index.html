@@ -45,6 +45,10 @@
       <a class="nav-link" href="#contacts" data-i18n="navContacts">Контакты</a>
     </nav>
     <div class="controls">
+      <div class="lang-sw" role="group" data-i18n-aria="aLang" aria-label="Язык интерфейса">
+        <button type="button" data-setlang="ru">RU</button>
+        <button type="button" data-setlang="en">EN</button>
+      </div>
       <button type="button" id="themeBtn" class="theme-btn" data-i18n-aria="aTheme" aria-label="Переключить тему">
         <svg class="ic ic-sun"><use href="#i-sun"/></svg>
         <svg class="ic ic-moon"><use href="#i-moon"/></svg>
@@ -58,12 +62,12 @@
 <!-- HERO -->
 <section class="page" id="page-hero" data-page="hero">
   <div class="wrap">
-    <div class="hero-topmeta mono rv"><span>ПОРТФОЛИО · 2026</span><span>ПРОДУКТОВЫЙ ДИЗАЙН</span><span>МОСКВА · GMT+3</span></div>
+    <div class="hero-topmeta mono rv"><span data-i18n="heroTop1">ПОРТФОЛИО · 2026</span><span data-i18n="heroTop2">ПРОДУКТОВЫЙ ДИЗАЙН</span><span data-i18n="heroTop3">МОСКВА · GMT+3</span></div>
     <div class="hero-grid">
       <h1 class="hero-title rv"><span class="line">Мария</span><span class="line">Мишина<span class="dot" aria-hidden="true"></span></span></h1>
       <figure class="hero-media rv"><div class="frame"><img src="assets/portrait.jpg" alt="Мария Мишина — портрет"></div></figure>
       <div class="hero-side">
-        <p class="hero-role mono rv"><span>Senior Product Designer</span><span class="sep">·</span><span>продукт с 2016</span></p>
+        <p class="hero-role mono rv"><span>Senior Product Designer</span><span class="sep">·</span><span data-i18n="heroSince">продукт с 2016</span></p>
         <div class="chips rv"><span class="chip">Figma</span><span class="chip">UX Research</span><span class="chip">Design Systems</span><span class="chip">FinTech</span><span class="chip">B2B</span><span class="chip">GovTech</span><span class="chip">AI Interfaces</span></div>
         <div class="contact-row rv">
           <a class="iconbtn" href="https://t.me/MyxaZlaya" target="_blank" rel="noopener" aria-label="Telegram — @MyxaZlaya"><svg class="ic"><use href="#i-send"/></svg></a>
@@ -84,15 +88,21 @@
 <!-- ОПЫТ -->
 <section class="page" id="page-experience" data-page="experience" hidden>
   <div class="wrap">
-    <header class="sec-head rv"><span class="sec-idx mono">(01)</span><h2 data-i18n="secExperience">Опыт работы</h2><span class="sec-note">[ интерфейсы с 2008 · продукт с 2016 ]</span></header>
+    <header class="sec-head rv"><span class="sec-idx mono">(01)</span><h2 data-i18n="secExperience">Опыт работы</h2>
+<span class="sec-note">[ <span data-i18n="expCounter">интерфейсы с 2008 · продукт с 2016</span> ]</span>
+    </header>
     <ol class="timeline">
       <li class="tl-item rv">
         <span class="tl-year">[ май — авг 2026 ]</span><span class="tl-node" aria-hidden="true"></span>
         <div class="tl-body">
-          <div class="tl-top"><h3>[ ГлавНИВЦ ]</h3><span class="tl-role">Product Designer · Консалтинг</span></div>
+          <div class="tl-top"><h3>[ ГлавНИВЦ ]</h3><span class="tl-role" data-i18n="gnvRole">Product Designer · Консалтинг</span></div>
           <div class="tl-desc">
-            <div class="tl-block"><span class="tl-label" data-i18n="tlContext">Контекст</span><p>ФГУП «ГлавНИВЦ» УДП РФ — единый центр экспертизы и ИТ-интегратор для подведомственных структур (санатории, управление персоналом, аналитика). Компания работает в закрытом высокозащищённом контуре, где ПО создаётся под уникальные задачи ведомств, а не на массовый рынок. <strong>Дизайн-функция как класс отсутствовала.</strong></p></div>
-            <div class="tl-block"><span class="tl-label" data-i18n="tlInput">Мой вклад</span><ul class="tl-list"><li>С нуля построила полную дизайн-библиотеку в Pixso (<strong>166 токенов</strong>, <strong>2069 компонентов</strong>)</li><li>Спроектировала MVP и прототипы на React для МИС</li><li>Провела редизайн внутренней CRM, соблюдая строгие требования к безопасности и соответствию регуляторике</li></ul></div>
+            <div class="tl-block"><span class="tl-label" data-i18n="tlContext">Контекст</span>
+            <p data-i18n="gnvContext">ФГУП «ГлавНИВЦ» УДП РФ — единый центр экспертизы и ИТ-интегратор для подведомственных структур (санатории, управление персоналом, аналитика). Компания работает в закрытом высокозащищённом контуре, где ПО создаётся под уникальные задачи ведомств, а не на массовый рынок. Дизайн-функция как класс отсутствовала.</p>
+            </div>
+            <div class="tl-block"><span class="tl-label" data-i18n="tlInput">Мой вклад</span>
+              <ul class="tl-list" data-i18n="gnvInput"><li>С нуля построила полную дизайн-библиотеку в Pixso (166 токенов, 2069 компонентов)</li><li>Спроектировала MVP и прототипы на React для МИС</li><li>Провела редизайн внутренней CRM, соблюдая строгие требования к безопасности и соответствию регуляторике</li></ul>
+            </div>
             <div class="tl-block"><span class="tl-label" data-i18n="tlResults">Результаты</span><ul class="tl-list"><li>Разработанная на основе сценариев CRM «КПИ» дизайн-система стала фундаментом <strong>универсального конструктора приложений</strong> ГлавНИВЦ. Она обеспечивает единый UX-стандарт для любых будущих CRM и внутренних систем, исключая необходимость повторной разработки интерфейсов.</li><li>Проект завершён досрочно: на текущем этапе компания не готова к полноценным продуктовым процессам, однако заложенная система позволяет перейти на новый движок <strong>без двойной работы</strong> и масштабировать дизайн на всю линейку будущих решений.</li></ul></div>
           </div>
           <div class="tl-links"><a class="case-link" href="#case">Кейс: Редизайн CRM «КПИ»<svg class="ic"><use href="#i-up-right"/></svg></a><a class="case-link" href="#altera">Кейс: МИС «Альтера»<svg class="ic"><use href="#i-up-right"/></svg></a></div>
@@ -165,7 +175,9 @@
 <!-- ПРОФИЛЬ -->
 <section class="page" id="page-about" data-page="about" hidden>
   <div class="wrap">
-    <header class="sec-head rv"><span class="sec-idx mono">(03)</span><h2 data-i18n="secProfile">Профиль</h2><span class="sec-note">[ интерфейсы с 2008 · продукт с 2016 ]</span></header>
+    <header class="sec-head rv"><span class="sec-idx mono">(03)</span><h2 data-i18n="secProfile">Профиль</h2>
+<span class="sec-note">[ <span data-i18n="expCounter">интерфейсы с 2008 · продукт с 2016</span> ]</span>
+    </header>
     <div class="about-grid"><div class="about-text">
       <section class="about-sub rv"><div class="as-head"><span class="as-idx">(01)</span><h3 data-i18n="secProfileIntro">Профессиональный профиль</h3></div><p class="about-big">Продуктовый дизайнер с более чем <strong>9-летним опытом</strong> создания сложных B2B и B2G продуктов. Специализируюсь на высокорегулируемых средах (финтех, госсектор, enterprise), где критически важно найти баланс между требованиями законодательства, техническими ограничениями и потребностями пользователей. Бэкграунд в психологии позволяет исследовать поведение пользователей и проектировать стратегию взаимодействия, а не просто рисовать экраны.</p></section>
       <section class="about-sub rv"><div class="as-head"><span class="as-idx">(02)</span><h3 data-i18n="secSkills">Ключевые компетенции</h3></div><div class="skills-grid"><span class="chip">UX Research</span><span class="chip">Service Design</span><span class="chip">Design Systems</span><span class="chip">Prototyping</span><span class="chip">User Testing</span><span class="chip">Journey Mapping</span><span class="chip">B2B Interfaces</span><span class="chip">Fintech Products</span><span class="chip">Product Strategy</span><span class="chip">Team Leadership</span><span class="chip">Atomic Design</span><span class="chip">Agile/Scrum</span></div></section>
