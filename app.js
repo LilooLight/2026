@@ -193,6 +193,7 @@ const I18N = {
     bpPrev:'Предыдущий кейс: SmartCare', bpNext:'Следующий кейс: Редизайн CRM «КПИ»',
     contactsCounter:'открыта к предложениям · GMT+3',
     contactHint:'основной способ связи · telegram',
+         wechatLbl:'wechat · деловая связь', wechatCopyBtn:'скопировать', wechatNote:'Отсканируйте QR-код или добавьте по ID — это самый быстрый способ связаться в Китае.',
     footer:'© Мария Мишина · 2026',
     marquee:['Продуктовый дизайн','FinTech','B2B','GovTech','AI Интерфейсы','UX Research','Дизайн-системы','Менторинг','Figma','Enterprise','Service Design']
   },
@@ -370,6 +371,7 @@ const I18N = {
     bpPrev:'Previous case study: SmartCare', bpNext:'Next case study: CRM “KPI” Redesign',
     contactsCounter:'open to offers · GMT+3',
     contactHint:'primary contact method · telegram',
+         wechatLbl:'wechat · business contact', wechatCopyBtn:'copy', wechatNote:'Scan the QR code or add by ID — the fastest way to reach me in China.',
     footer:'© Maria Mishina · 2026',
     marquee:['Product Design','FinTech','B2B','GovTech','AI Interfaces','UX Research','Design Systems','Mentorship','Figma','Enterprise','Service Design']
   },
@@ -547,6 +549,7 @@ const I18N = {
     bpPrev:'上一个案例：SmartCare', bpNext:'下一个案例：CRM「KPI」改版',
     contactsCounter:'开放机会 · GMT+3',
     contactHint:'主要联系方式 · Telegram',
+         wechatLbl:'微信 · 商务联系', wechatCopyBtn:'复制', wechatNote:'扫描二维码或通过微信号添加——在中国联系我最快的方式。',
     footer:'© Maria Mishina · 2026',
     marquee:['产品设计','金融科技','B2B','政务科技','AI 界面','UX Research','设计系统','导师辅导','Figma','企业服务','服务设计']
   }
