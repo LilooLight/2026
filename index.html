@@ -32,6 +32,8 @@
 <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
 <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
 <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+<symbol id="i-wechat" viewBox="0 0 24 24"><path d="M8.5 3C4.9 3 2 5.5 2 8.6c0 1.8 1 3.4 2.5 4.4l-.6 2 2.2-1.1c.7.2 1.5.3 2.4.3h.4c-.1-.4-.1-.8-.1-1.2 0-3 2.9-5.4 6.4-5.4h.3C14.7 5 11.9 3 8.5 3zM6 7.8c.5 0 .9.4.9.9s-.4.9-.9.9-.9-.4-.9-.9.4-.9.9-.9zm5 0c.5 0 .9.4.9.9s-.4.9-.9.9-.9-.4-.9-.9.4-.9.9-.9zm4.8 2.6c-3.1 0-5.6 2.1-5.6 4.7s2.5 4.7 5.6 4.7c.7 0 1.4-.1 2-.3l1.9.9-.5-1.7c1.4-.9 2.2-2.2 2.2-3.6 0-2.6-2.5-4.7-5.6-4.7zm-1.8 2.7c.4 0 .7.3.7.7s-.3.7-.7.7-.7-.3-.7-.7.3-.7.7-.7zm3.6 0c.4 0 .7.3.7.7s-.3.7-.7.7-.7-.3-.7-.7.3-.7.7-.7z"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></symbol>
 </defs>
 </svg>
 
@@ -75,6 +77,7 @@
           <a class="iconbtn" href="mailto:mishina.maria.v@yandex.ru" aria-label="Email — mishina.maria.v@yandex.ru"><svg class="ic"><use href="#i-mail"/></svg></a>
           <a class="iconbtn" href="https://ru.linkedin.com/in/liloolight" target="_blank" rel="noopener" aria-label="LinkedIn — Мария Мишина"><svg class="ic"><use href="#i-linkedin"/></svg></a>
           <a class="iconbtn" href="https://www.facebook.com/share/1EgFwFhWpJ/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook — Мария Мишина"><svg class="ic"><use href="#i-facebook"/></svg></a>
+          <a class="iconbtn wechat-hero" href="#contacts" aria-label="WeChat"><svg class="ic"><use href="#i-wechat"/></svg></a>
         </div>
         <div class="hero-cta rv">
           <a class="btn btn-accent" href="#experience"><span data-i18n="heroBtnExp">Опыт работы</span><svg class="ic"><use href="#i-arrow-r"/></svg></a>
@@ -373,6 +376,17 @@
     <header class="sec-head rv"><span class="sec-idx mono">(04)</span><h2 data-i18n="secContacts">Контакты</h2><span class="sec-note">[ <span data-i18n="contactsCounter">открыта к предложениям · GMT+3</span> ]</span></header>
     <p class="contact-hint rv">[ <span data-i18n="contactHint">основной способ связи · telegram</span> ]</p>
     <a class="contact-big rv" href="https://t.me/MyxaZlaya" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-send"/></svg><span>@MyxaZlaya</span></a>
+        <div class="wechat-card rv">
+      <img class="wechat-qr" src="assets/wechat-qr.png" alt="WeChat QR — сканируйте, чтобы добавить" data-zoom>
+      <div class="wechat-main">
+        <span class="wechat-label">[ <span data-i18n="wechatLbl">wechat · деловая связь</span> ]</span>
+        <div class="wechat-id-row">
+          <span class="wechat-id" id="wechatId">wxid_zyxqthkfzwvz12</span>
+          <button class="wechat-copy" type="button" id="wechatCopy" aria-label="Скопировать WeChat ID"><svg class="ic"><use href="#i-copy"/></svg><span data-i18n="wechatCopyBtn">скопировать</span></button>
+        </div>
+        <p class="wechat-note"><span data-i18n="wechatNote">Отсканируйте QR-код или добавьте по ID — это самый быстрый способ связаться в Китае.</span></p>
+      </div>
+    </div>
     <div class="contact-list rv">
       <a class="contact-item" href="mailto:mishina.maria.v@yandex.ru"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg><span class="ci-label mono">email</span><span class="ci-value">mishina.maria.v@yandex.ru</span><svg class="ic ci-arrow" aria-hidden="true"><use href="#i-up-right"/></svg></a>
       <a class="contact-item" href="https://ru.linkedin.com/in/liloolight" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg><span class="ci-label mono">linkedin</span><span class="ci-value">linkedin.com/in/liloolight</span><svg class="ic ci-arrow" aria-hidden="true"><use href="#i-up-right"/></svg></a>
