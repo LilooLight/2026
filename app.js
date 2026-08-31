@@ -42,6 +42,9 @@ const I18N = {
     /* ОПЫТ — счётчик и подписи записей */
     expCounter:'интерфейсы с 2008 · продукт с 2016',
     /* ГлавНИВЦ */
+         gnvName:'ГлавНИВЦ',
+    otkName:'Банк «ФК Открытие»',
+    conName:'IT-компании-подрядчики',
     gnvRole:'Product Designer · Консалтинг',
     gnvContext:'ФГУП «ГлавНИВЦ» УДП РФ — единый центр экспертизы и ИТ-интегратор для подведомственных структур (санатории, управление персоналом, аналитика). Компания работает в закрытом высокозащищённом контуре, где ПО создаётся под уникальные задачи ведомств, а не на массовый рынок. Дизайн-функция как класс отсутствовала.',
     gnvInput:'С нуля построила полную дизайн-библиотеку в Pixso (166 токенов, 2069 компонентов). Спроектировала MVP и прототипы на React для МИС. Провела редизайн внутренней CRM, соблюдая строгие требования к безопасности и соответствию регуляторике.',
@@ -228,6 +231,9 @@ const I18N = {
     /* ОПЫТ */
     expCounter:'interfaces since 2008 · product since 2016',
     /* ГлавНИВЦ */
+         gnvName:'GlavNIVC',
+    otkName:'Otkritie Bank',
+    conName:'IT contractor companies',
     gnvRole:'Product Designer · Consulting',
     gnvContext:'GlavNIVC, a Federal State Unitary Enterprise under the Presidential Administration, acts as a central hub of expertise and IT integrator for subordinate organizations (sanatoriums, HR management, analytics). The company operates within a closed, highly secure environment, building software for unique government agency needs rather than the mass market. There was no established design function.',
     gnvInput:'Built a complete design library from scratch in Pixso (166 tokens, 2,069 components). Designed the MVP and React prototypes for the HIS. Redesigned the internal CRM while adhering to strict security and regulatory compliance requirements.',
