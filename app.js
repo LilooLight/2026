@@ -721,6 +721,33 @@ document.querySelectorAll('[data-mw]').forEach(track => {
   if(next) next.addEventListener('click', () => track.scrollBy({left:step()*2, behavior:'smooth'}));
 });
 
+   /* ---------- КОПИРОВАНИЕ WECHAT ID ---------- */
+const wechatCopy = document.getElementById('wechatCopy');
+const wechatId = document.getElementById('wechatId');
+if(wechatCopy && wechatId){
+  wechatCopy.addEventListener('click', () => {
+    const text = wechatId.textContent.trim();
+    const done = () => {
+      wechatCopy.classList.add('copied');
+      const lbl = wechatCopy.querySelector('span');
+      const orig = lbl.textContent;
+      lbl.textContent = '✓';
+      setTimeout(() => { lbl.textContent = orig; wechatCopy.classList.remove('copied'); }, 1500);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(() => {
+        const r = document.createRange(); r.selectNodeContents(wechatId);
+        const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        done();
+      });
+    }else{
+      const r = document.createRange(); r.selectNodeContents(wechatId);
+      const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      done();
+    }
+  });
+}
+   
 /* ---------- ПОЯВЛЕНИЕ ПРИ СКРОЛЛЕ ---------- */
 if('IntersectionObserver' in window){
   const io = new IntersectionObserver(entries => {
