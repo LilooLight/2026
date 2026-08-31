@@ -592,8 +592,7 @@ const I18N = {
     contactsCounter:'开放机会 · GMT+3',
     contactHint:'主要联系方式 · Telegram',
     footer:'© Maria Mishina · 2026',
-    marquee:['产品设计','FinTech','B2B','GovTech','AI 界面','UX Research','设计系统','导师辅导','Figma','企业服务','服务设计']
-  }
+    marquee:['产品设计','金融科技','B2B','政务科技','AI 界面','UX Research','设计系统','导师辅导','Figma','企业服务','服务设计']  }
 };
 
 function renderMarquee(l){
