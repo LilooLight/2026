@@ -405,7 +405,7 @@ const I18N = {
     bpMwFootnote:'19th place (2016) — exactly from this point the product I built as the only designer started. This was my first launched MVP.',
     bpRiaLbl:'Public recognition', bpRiaCap:'RIA Novosti · 2020 · open article',
     bpSumLbl:'Seven-year results',
-    bpM1:'key operation time', bpM2num:'50 000+', bpM2:'users', bpM3:'products on a unified design system', bpM4:'design team growth',
+    bpM1:'key operation time', bpM2num:'50,000+', bpM2:'users', bpM3:'products on a unified design system', bpM4:'design team growth',
     bpProfitNote:'The product reached profitability in its first quarter after MVP release (November 2016).',
     bpBpNda:'What is not visible in the screenshots. The project was closed in 2023 due to the VTB acquisition. Full materials are available upon request.',
     bpNext:'Next case study: CRM “KPI” Redesign',
