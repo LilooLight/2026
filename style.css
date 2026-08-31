@@ -406,7 +406,7 @@ html[data-theme="dark"]{--accent-4:#4CC3F0;--accent-4-ink:#06202B}
 /* ============================================================
    КАРТОЧКА WECHAT (только для китайской версии)
    ============================================================ */
-.wechat-card{display:none;margin-top:clamp(28px,4vw,44px);padding:clamp(24px,3vw,32px);border:1.5px solid var(--accent-2);border-radius:22px;background:var(--surface)}
+.wechat-card{display:none;margin-top:clamp(28px,4vw,44px);padding:clamp(24px,3vw,32px);border:1.5px solid var(--accent);border-radius:22px;background:var(--surface)}
 html[data-lang="cn"] .wechat-card{display:flex;align-items:center;gap:clamp(20px,3vw,32px);flex-wrap:wrap}
 html[data-lang="cn"] .contact-list{margin-top:0}
 .wechat-qr{flex:none;width:clamp(120px,15vw,160px);cursor:zoom-in;border-radius:14px;border:1px solid var(--line)}
@@ -415,8 +415,8 @@ html[data-lang="cn"] .contact-list{margin-top:0}
 .wechat-id-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .wechat-id{font-family:var(--font-mono);font-size:clamp(1rem,1.6vw,1.15rem);font-weight:500;word-break:break-all}
 .wechat-copy{display:inline-flex;align-items:center;gap:8px;padding:.55em 1.1em;border:1.5px solid var(--line);border-radius:999px;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);transition:.25s;background:var(--surface)}
-.wechat-copy:hover{border-color:var(--accent-2);color:var(--accent-2)}
+.wechat-copy:hover{border-color:var(--accent);color:var(--accent)}
 .wechat-copy .ic{width:14px;height:14px}
-.wechat-copy.copied{border-color:var(--accent-2);color:var(--accent-2);background:color-mix(in srgb,var(--accent-2) 10%,transparent)}
+.wechat-copy.copied{border-color:var(--accent);color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
 .wechat-note{font-family:var(--font-mono);font-size:11px;line-height:1.7;color:var(--muted);max-width:44ch}
 @media (max-width:560px){.wechat-card{flex-direction:column;align-items:flex-start}.wechat-qr{width:140px}}
