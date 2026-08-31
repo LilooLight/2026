@@ -39,6 +39,8 @@ const I18N = {
     /* HERO */
     heroTop1:'ПОРТФОЛИО · 2026', heroTop2:'ПРОДУКТОВЫЙ ДИЗАЙН', heroTop3:'МОСКВА · GMT+3',
     heroSince:'продукт с 2016',
+         heroName1:'Мария', heroName2:'Мишина',
+    uMin:'мин', uHour:'ч', uMonth:'мес.',
     /* ОПЫТ — счётчик и подписи записей */
     expCounter:'интерфейсы с 2008 · продукт с 2016',
     /* ГлавНИВЦ */
@@ -103,6 +105,7 @@ const I18N = {
     kpiValue2:'Экономия ресурсов — компоненты спроектированы под новый движок: при миграции не придётся перерисовывать всё с нуля',
     kpiValue3:'Валидация на живом продукте — скин на текущем Bootstrap стал полигоном для проверки компонентов дизайн-системы в условиях живой вёрстки',
     kpiNext:'Следующий кейс: МИС «Альтера»',
+    kpiPrev:'Предыдущий кейс: Бизнес-портал',
     /* Альтера */
     altCardTitle:'МИС «Альтера» для санаториев', altCardLbl:'MVP-модуль врача · живой интерактивный прототип',
     altMeta:'healthtech · MVP · 2026',
@@ -121,6 +124,7 @@ const I18N = {
     altUikitLbl:'Живой UI-Kit', altUikitCap:'Живой UI-Kit с переключателем тем доступен на прототипе · сначала откроется форма логина',
     altUikitLink:'Открыть прототип',
     altCapPatient:'Карточка пациента · история посещений',
+    altScreensLbl:'Экраны прототипа',
     altSpecLbl:'Техническая спецификация для Frontend',
     altSpec1:'Описание кастомных компонентов (wrapper-компоненты над SDK)',
     altSpec2:'Поведение таб-бара в рабочем месте врача',
@@ -134,6 +138,7 @@ const I18N = {
     altLegacy3:'Ценность для бизнеса — подход «Костяк + Кожа» минимизировал риски и стоимость разработки, подготовил платформу к плавному переходу на новый движок — без шока для пользователей',
     altLegacy4:'Методология — UX-исследования в условиях ограниченного доступа (опросы + анализ скриншотов) с защитой интересов конечного пользователя перед лицом технических ограничений',
     altNext:'Следующий кейс: СБОЛ.про',
+    altPrev:'Предыдущий кейс: Редизайн CRM «КПИ»',
     altFootnote:'Полные технические спецификации и стратегическое обоснование для разработки (Blazor, UI-паттерны) доступны по запросу.',
     /* СБОЛ.про */
     sbCardTitle:'СБОЛ.про · Обращения', sbCardLbl:'эскалаций · AI-ассистент',
@@ -153,6 +158,7 @@ const I18N = {
     sbM3:'адаптация новых сотрудников (вместо 6 ранее)', sbM4:'значительное сокращение трудозатрат и времени обработки',
     ndaText:'NDA. Продукт находится под соглашением о неразглашении. Визуальные материалы не подлежат экспорту из внутреннего контура банка — поэтому вместо скриншотов экранов здесь представлены ключевые метрики, типографика и табличные данные. Полное описание процесса и архитектуры доступно по запросу.',
     sbNext:'Следующий кейс: SmartCare',
+    sbPrev:'Предыдущий кейс: МИС «Альтера»',
     /* SmartCare */
     scCardTitle:'SmartCare', scCardLbl:'удовлетворённость · эволюция за 2 года',
     scMeta:'2023 — 2025 · Product Designer · NDA',
@@ -169,6 +175,7 @@ const I18N = {
     scM1:'среднее время звонка сократилось за два года', scM2:'период онбординга новых сотрудников',
     scM3:'удовлетворённость сервисом (CSAT) — вместо ожидаемого падения', scM4:'время возврата средств (вместо нескольких дней)',
     scPrev:'Предыдущий кейс: СБОЛ.про',
+    scNext:'Следующий кейс: Бизнес-портал',
     /* Бизнес-портал */
     bpCardTitle:'Бизнес-портал', bpCardLbl:'Markswebb 2020 · семь лет эволюции платформы для МСБ',
     bpMeta:'2016 — 2022 · Lead Product Designer · B2B · FinTech',
@@ -205,6 +212,7 @@ const I18N = {
     bpProfitNote:'Продукт вышел на прибыльность в первый же квартал после релиза MVP (ноябрь 2016).',
     bpBpNda:'Что не видно на скриншотах. Проект закрыт в 2023 году в связи с поглощением ВТБ. Полные материалы доступны по запросу.',
     bpNext:'Следующий кейс: Редизайн CRM «КПИ»',
+    bpPrev:'Предыдущий кейс: SmartCare',
     /* КОНТАКТЫ */
     contactsCounter:'открыта к предложениям · GMT+3',
     contactHint:'основной способ связи · telegram',
@@ -228,6 +236,8 @@ const I18N = {
     /* HERO */
     heroTop1:'PORTFOLIO · 2026', heroTop2:'PRODUCT DESIGN', heroTop3:'MOSCOW · GMT+3',
     heroSince:'product since 2016',
+    heroName1:'Maria', heroName2:'Mishina',
+    uMin:'min', uHour:'h', uMonth:'mo.',
     /* ОПЫТ */
     expCounter:'interfaces since 2008 · product since 2016',
     /* ГлавНИВЦ */
@@ -292,6 +302,7 @@ const I18N = {
     kpiValue2:'Resource savings — components are designed for the new engine: no need to redraw everything from scratch during migration',
     kpiValue3:'Validation on a live product — the skin became a testing ground for design system components in real-world markup conditions',
     kpiNext:'Next case study: Altera HIS',
+    kpiPrev:'Previous case study: Business Portal',
     /* Альтера */
     altCardTitle:'Altera HIS for sanatoriums', altCardLbl:'physician MVP module · live interactive prototype',
     altMeta:'healthtech · MVP · 2026',
@@ -310,6 +321,7 @@ const I18N = {
     altUikitLbl:'Live UI Kit', altUikitCap:'A live UI kit with theme switcher is available on the prototype · the login form will open first',
     altUikitLink:'Open prototype',
     altCapPatient:'Patient card · visit history',
+    altScreensLbl:'Prototype screens',
     altSpecLbl:'Technical specification for Frontend',
     altSpec1:'Description of custom components (wrapper components over SDK)',
     altSpec2:'Tab bar behavior in the physician workspace',
@@ -323,6 +335,7 @@ const I18N = {
     altLegacy3:'Business value — the “Skeleton + Skin” approach minimized risks and development costs, preparing the platform for a smooth transition to the new engine — without user shock',
     altLegacy4:'Methodology — UX research under limited access (surveys + screenshot analysis) while defending the end user’s interests in the face of technical constraints',
     altNext:'Next case study: Sbol.pro',
+    altPrev:'Previous case study: CRM “KPI” Redesign',
     altFootnote:'Full technical specifications and strategic rationale for development (Blazor, UI patterns) are available upon request.',
     /* СБОЛ.про */
     sbCardTitle:'Sbol.pro · Customer Requests', sbCardLbl:'escalations · AI assistant',
@@ -342,6 +355,7 @@ const I18N = {
     sbM3:'new employee adaptation (instead of 6 previously)', sbM4:'significant reduction in labor costs and processing time',
     ndaText:'NDA. The product is under a non-disclosure agreement. Visual materials cannot be exported from the bank’s internal environment — therefore, instead of screenshots, key metrics, typography, and tabular data are presented here. A full description of the process and architecture is available upon request.',
     sbNext:'Next case study: SmartCare',
+    sbPrev:'Previous case study: Altera HIS',
     /* SmartCare */
     scCardTitle:'SmartCare', scCardLbl:'satisfaction · evolution over 2 years',
     scMeta:'2023 — 2025 · Product Designer · NDA',
@@ -358,6 +372,7 @@ const I18N = {
     scM1:'average call time decreased over two years', scM2:'new employee onboarding period',
     scM3:'service satisfaction (CSAT) — instead of the expected drop', scM4:'refund time (instead of several days)',
     scPrev:'Previous case study: Sbol.pro',
+    scNext:'Next case study: Business Portal',
     /* Бизнес-портал */
     bpCardTitle:'Business Portal', bpCardLbl:'Markswebb 2020 · seven years of SME platform evolution',
     bpMeta:'2016 — 2022 · Lead Product Designer · B2B · FinTech',
@@ -394,10 +409,11 @@ const I18N = {
     bpProfitNote:'The product reached profitability in its first quarter after MVP release (November 2016).',
     bpBpNda:'What is not visible in the screenshots. The project was closed in 2023 due to the VTB acquisition. Full materials are available upon request.',
     bpNext:'Next case study: CRM “KPI” Redesign',
+    bpPrev:'Previous case study: SmartCare',
     /* КОНТАКТЫ */
     contactsCounter:'open to offers · GMT+3',
     contactHint:'primary contact method · telegram',
-    footer:'© Mariia Mishina · 2026',
+    footer:'© Maria Mishina · 2026',
     /* Бегущая строка */
     marquee:['Product Design','FinTech','B2B','GovTech','AI Interfaces','UX Research','Design Systems','Mentorship','Figma','Enterprise','Service Design']
   },
@@ -415,6 +431,8 @@ const I18N = {
     aTheme:'切换主题', aLang:'界面语言',
     heroTop1:'作品集 · 2026', heroTop2:'产品设计', heroTop3:'莫斯科 · GMT+3',
     heroSince:'产品经验自 2016 年起',
+    heroName1:'Maria', heroName2:'Mishina',
+    uMin:'分', uHour:'小时', uMonth:'个月',
     expCounter:'界面经验自 2008 年起 · 产品经验自 2016 年起',
     gnvName:'GlavNIVC', sberName:'Sber', otkName:'Otkritie Bank', conName:'IT 承包商',
     gnvRole:'产品设计师 · 咨询',
@@ -467,6 +485,7 @@ const I18N = {
     kpiValue2:'节省资源——迁移时无需从头重绘所有内容',
     kpiValue3:'在真实产品上验证——换肤成为组件验证的试验场',
     kpiNext:'下一个案例：Altera 医疗信息系统',
+         kpiPrev:'上一个案例：Business Portal',
     altCardTitle:'Altera 疗养院医疗信息系统', altCardLbl:'医生 MVP 模块 · 可交互原型',
     altMeta:'医疗科技 · MVP · 2026',
     altSub:'全科医生（GP）模块 · 产品设计师 / UX 研究 / UI 架构师 · [ 2026年6月 — 8月 ]',
@@ -484,6 +503,7 @@ const I18N = {
     altUikitLbl:'可交互 UI Kit', altUikitCap:'可交互 UI Kit 含主题切换，可在原型中体验 · 打开后先显示登录表单',
     altUikitLink:'打开原型',
     altCapPatient:'患者卡片 · 就诊历史',
+         altScreensLbl:'原型界面',
     altSpecLbl:'技术规范（前端）',
     altSpec1:'自定义组件说明（SDK 之上的封装组件）',
     altSpec2:'医生工作台中标签栏的行为',
@@ -497,6 +517,7 @@ const I18N = {
     altLegacy3:'商业价值——“骨架 + 皮肤”将风险降至最低，并为平台无感切换到新引擎做好准备',
     altLegacy4:'方法论——受限访问条件下的 UX 研究（问卷 + 截图分析）',
     altNext:'下一个案例：Sbol.pro',
+         altPrev:'上一个案例：CRM「KPI」改版',
     altFootnote:'完整技术规范和开发战略依据（Blazor、UI 模式）可应要求提供。', altFootnoteLink:'应要求提供',
     sbCardTitle:'Sbol.pro · 客户请求', sbCardLbl:'升级处理 · AI 助手',
     sbMeta:'2025 · 产品设计师 · NDA',
@@ -515,6 +536,7 @@ const I18N = {
     sbM3:'新员工适应期（此前为 6 个月）', sbM4:'工作量和处理时间显著减少',
     ndaText:'NDA。产品受保密协议约束。视觉素材不得导出银行内网环境，因此此处以关键指标、排版和表格数据代替界面截图。完整流程和架构说明可应要求提供。',
     sbNext:'下一个案例：SmartCare',
+         sbPrev:'上一个案例：Altera 医疗信息系统',
     scCardTitle:'SmartCare', scCardLbl:'满意度 · 两年演进',
     scMeta:'2023 — 2025 · 产品设计师 · NDA',
     scTitle:'SmartCare：支持工具的演进', scSub:'Sber 支持热线 · [ 2023年 — 2025年 ]',
@@ -530,6 +552,7 @@ const I18N = {
     scM1:'两年内平均通话时长缩短', scM2:'新员工入职上手周期',
     scM3:'服务满意度（CSAT）——未出现预期下降', scM4:'退款时间（此前需数天）',
     scPrev:'上一个案例：Sbol.pro',
+         scNext:'下一个案例：Business Portal',
     bpCardTitle:'Business Portal', bpCardLbl:'Markswebb 2020 · 中小企业平台七年演进',
     bpMeta:'2016 — 2022 · 首席产品设计师 · B2B · 金融科技',
     bpSub:'中小企业数字银行服务平台 · Otkritie Bank',
@@ -565,9 +588,10 @@ const I18N = {
     bpProfitNote:'产品在 MVP 上线后的第一个季度即实现盈利（2016 年 11 月）。',
     bpBpNdaLbl:'截图未能呈现的内容。', bpBpNda:'项目因 VTB 收购于 2023 年关闭。完整材料可应要求提供。',
     bpNext:'下一个案例：CRM「KPI」改版',
+         bpPrev:'上一个案例：SmartCare',
     contactsCounter:'开放机会 · GMT+3',
     contactHint:'主要联系方式 · Telegram',
-    footer:'© Mariia Mishina · 2026',
+    footer:'© Maria Mishina · 2026',
     marquee:['产品设计','FinTech','B2B','GovTech','AI 界面','UX Research','设计系统','导师辅导','Figma','企业服务','服务设计']
   }
 };
