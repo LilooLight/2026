@@ -409,7 +409,7 @@ html[data-theme="dark"]{--accent-4:#4CC3F0;--accent-4-ink:#06202B}
    ============================================================ */
 .wechat-card{display:none;margin-top:clamp(28px,4vw,44px);padding:clamp(24px,3vw,32px);border:1.5px solid var(--accent);border-radius:22px;background:var(--surface)}
 html[data-lang="cn"] .wechat-card{display:flex;align-items:center;gap:clamp(20px,3vw,32px);flex-wrap:wrap}
-.wechat-qr{flex:none;width:clamp(120px,15vw,160px);cursor:zoom-in;border-radius:14px;border:1px solid var(--line)}
+.wechat-qr{flex:none;width:clamp(120px,15vw,160px);cursor:zoom-in}
 .wechat-main{display:flex;flex-direction:column;gap:12px;min-width:220px;flex:1}
 .wechat-label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .wechat-id-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
